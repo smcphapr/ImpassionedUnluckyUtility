@@ -34,15 +34,24 @@ function Home() {
           <p className="mt-7 text-xs tracking-wide text-[hsl(var(--muted-foreground))]">medicine · nursing · PA · dentistry · PT · pharmacy · still figuring it out</p>
         </div>
         <div className="relative min-h-[380px] reveal reveal-delay-2 lg:min-h-[520px]">
-          <div className="absolute left-[12%] top-[5%] h-[80%] w-[72%] rotate-[4deg] border border-[hsl(var(--primary))]/20 bg-[hsl(var(--secondary))] p-5 paper-shadow">
-            <div className="h-full border border-dashed border-[hsl(var(--primary))]/30 p-5">
+          <div className="absolute left-[14%] top-[10%] h-[68%] w-[65%] rotate-[-4deg] border border-[hsl(var(--primary))]/20 bg-[hsl(var(--background))] p-5 paper-shadow">
+            <div className="h-full border border-[hsl(var(--primary))]/20 p-5">
               <div className="flex items-start justify-between"><span className="font-display text-2xl font-bold">PHPA</span><span className="font-mono-ui text-xs">SMC</span></div>
-              <div className="mt-14 border-y border-[hsl(var(--primary))]/25 py-5">
+              <div className="mt-12 border-y border-[hsl(var(--primary))]/25 py-5">
                 <p className="font-display text-4xl font-bold leading-none text-[hsl(var(--primary))]">Fall<br />2026</p>
               </div>
-              <div className="mt-9 text-xs text-[hsl(var(--muted-foreground))]">explore · learn · connect</div>
+              <div className="mt-7 text-xs text-[hsl(var(--muted-foreground))]">explore · learn · connect</div>
             </div>
           </div>
+          <div className="absolute right-[1%] top-[25%] h-[53%] w-[54%] rotate-[8deg] border border-[hsl(var(--primary))]/20 bg-[hsl(var(--secondary))] px-5 py-6 paper-shadow" aria-hidden="true">
+            <div className="graph-paper h-full border border-dashed border-[hsl(var(--primary))]/20" />
+          </div>
+          <div className="absolute bottom-[10%] left-[7%] flex h-28 w-36 rotate-[5deg] flex-col justify-between border border-[hsl(var(--primary))]/25 bg-[hsl(var(--accent))] p-4 text-[hsl(var(--primary))] paper-shadow">
+            <span className="font-mono-ui text-[10px] uppercase tracking-widest">student note</span>
+            <span className="font-display text-2xl font-bold leading-none">still figuring<br />it out?</span>
+          </div>
+          <span className="absolute right-[16%] top-[14%] z-10 rotate-[15deg] font-display text-4xl text-[hsl(var(--primary))]" aria-hidden="true">✦</span>
+          <span className="absolute bottom-[8%] right-[8%] h-12 w-24 rotate-[-10deg] border-t-2 border-[hsl(var(--primary))]/50" aria-hidden="true" />
         </div>
       </section>
 
@@ -61,8 +70,8 @@ function Home() {
             ['Try Clinical Skills', 'Workshops, simulations, and certifications.', '/events', 'skills'],
             ['Figure Out Your Path', 'Explore careers and find guidance.', '/guide', 'path'],
             ['Find Your People', 'Meet other students exploring healthcare.', '/about', 'people'],
-          ].map(([title, text, href, id]) => <Link href={href} key={id} data-testid={`card-intent-${id}`} className="group flex min-h-52 flex-col justify-between border border-[hsl(var(--border))] bg-[hsl(var(--card))] p-6 transition-all hover:-translate-y-1 hover:border-[hsl(var(--primary))] hover:shadow-[4px_5px_0_hsl(var(--accent))]">
-            <div className="flex justify-end"><ArrowDownRight size={19} className="text-[hsl(var(--muted-foreground))] transition-transform group-hover:translate-x-1 group-hover:translate-y-1" /></div>
+          ].map(([title, text, href, id], index) => <Link href={href} key={id} data-testid={`card-intent-${id}`} className={`group flex min-h-52 flex-col justify-between border border-[hsl(var(--border))] bg-[hsl(var(--card))] p-6 transition-all hover:-translate-y-1 hover:border-[hsl(var(--primary))] hover:shadow-[4px_5px_0_hsl(var(--accent))] ${index === 1 ? 'rotate-[1deg]' : index === 2 ? 'border-t-4 border-t-[hsl(var(--accent))]' : index === 3 ? 'translate-y-2' : ''}`}>
+            <div className="flex items-start justify-between"><span className="font-mono-ui text-xs text-[hsl(var(--muted-foreground))]">0{index + 1}</span><ArrowDownRight size={19} className="text-[hsl(var(--muted-foreground))] transition-transform group-hover:translate-x-1 group-hover:translate-y-1" /></div>
             <div><h3 className="font-display text-2xl font-bold leading-tight">{title}</h3><p className="mt-3 text-sm leading-6 text-[hsl(var(--muted-foreground))]">{text}</p></div>
           </Link>)}
         </div>
@@ -80,9 +89,19 @@ function Home() {
 
       <section className="bg-[hsl(var(--secondary))] px-5 py-20 lg:px-8 lg:py-28">
         <div className="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-[.8fr_1.2fr]">
-          <SectionHeading kicker="What students asked for" title="What students asked for" />
-          <div className="grid gap-7">
-            {[['Shadowing opportunities', '87.5%'], ['Hands-on skills + simulations', '83.3%'], ['Career/pathway guidance', '83.3%'], ['Volunteering opportunities', '79.2%']].map(([label, value]) => <div key={label} className="border-b border-[hsl(var(--primary))]/25 pb-5"><div className="flex items-end justify-between gap-4"><span className="font-display text-2xl font-bold">{label}</span><span className="font-mono-ui text-3xl font-bold text-[hsl(var(--primary))]">{value}</span></div><div className="mt-4 h-2 bg-[hsl(var(--background))]/50"><div className="h-full bg-[hsl(var(--primary))]" style={{ width: value }} /></div></div>)}
+          <SectionHeading kicker="The path isn’t one-size-fits-all" title="There’s more than one way into medicine." />
+          <div className="grid gap-6 sm:grid-cols-2">
+            <div className="border-y border-[hsl(var(--primary))]/30 py-5 sm:col-span-2">
+              <p className="font-mono-ui text-xs uppercase tracking-widest text-[hsl(var(--muted-foreground))]">Community college connection</p>
+              <p className="mt-2 font-display text-8xl font-bold leading-none text-[hsl(var(--primary))] md:text-9xl">30%</p>
+              <p className="mt-2 max-w-md text-sm leading-6">of the graduating U.S. medical school Class of 2025 attended classes at a community college.</p>
+            </div>
+            {[
+              ['31%', 'Majored in something outside the natural sciences.'],
+              ['94.8%', 'Had at least one undergraduate community-service experience.'],
+              ['85.8%', 'Had at least one undergraduate research experience.'],
+            ].map(([value, label]) => <div key={value} className="border-t border-[hsl(var(--primary))]/30 pt-4"><p className="font-mono-ui text-3xl font-bold text-[hsl(var(--primary))]">{value}</p><p className="mt-2 text-sm leading-6">{label}</p></div>)}
+            <p className="font-mono-ui text-[10px] uppercase tracking-widest text-[hsl(var(--muted-foreground))] sm:col-span-2">Source — Association of American Medical Colleges · Class of 2025</p>
           </div>
         </div>
       </section>

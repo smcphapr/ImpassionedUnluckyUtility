@@ -1,0 +1,179 @@
+Refine the current homepage only. Keep the current overall art direction, palette, typography, navigation, and reduced content density. Do not redesign the site from scratch.
+
+The goal is a youthful, editorial, student-made campus publication feel: warm cream, muted navy, powder blue, faded yellow, DM Serif Display + DM Sans, with subtle scrapbook/field-notebook details.
+
+HERO
+
+Keep the left-side hero content:
+
+Small label: “SANTA MONICA COLLEGE”
+
+Large headline: “Find your path in healthcare.”
+
+Supporting copy:
+“PHPA helps SMC students explore healthcare careers, gain hands-on experience, find opportunities, and meet other students figuring it out too.”
+
+Buttons:
+Join PHPA
+See What’s Next
+
+Small pathway line:
+“medicine · nursing · PA · dentistry · PT · pharmacy · still figuring it out”
+
+Keep the oversized editorial serif typography and small faded-yellow underline treatment.
+
+REMOVE the current tilted blue square/card entirely.
+
+Replace it with a more charming, tactile student-ephemera composition on the right side. It should feel like something found in a student backpack or pinned to a campus bulletin board, not a generic website card.
+
+Build a layered composition using 2–3 simple paper objects, for example:
+
+a slightly rotated cream notebook sheet or index card
+a faded blue graph-paper scrap
+a small yellow sticky note or library checkout slip
+one paperclip/tape detail
+one hand-drawn navy star, arrow, underline, or scribble
+
+Use only very short real text such as:
+
+“PHPA”
+“Fall 2026”
+“explore · learn · connect”
+“still figuring it out?”
+
+Do not invent quotes or fake messaging.
+
+The hero should feel cute, tactile, slightly nostalgic and asymmetric, but still clean. Think student notebook / old course catalog / campus bulletin board rather than a floating SaaS card.
+
+WHAT ARE YOU LOOKING FOR?
+
+Keep four cards:
+
+Find Experience
+Try Clinical Skills
+Figure Out Your Path
+Find Your People
+
+Keep only one short line under each.
+
+Make them visually related but not identical SaaS cards. Use slight editorial variation such as small numbering, thin rules, subtle paper textures, small labels, or slightly offset alignment.
+
+STATISTICS SECTION
+
+Replace the current PHPA survey section entirely.
+
+Use real external statistics from the Association of American Medical Colleges and clearly label them as statistics about U.S. medical students, not all pre-health students.
+
+Small label:
+THE PATH ISN’T ONE-SIZE-FITS-ALL
+
+Headline:
+There’s more than one way into medicine.
+
+Use these statistics:
+
+30%
+of the graduating U.S. medical school Class of 2025 attended classes at a community college.
+
+31%
+majored in something outside the natural sciences.
+
+94.8%
+had at least one undergraduate community-service experience.
+
+85.8%
+had at least one undergraduate research experience.
+
+Source line:
+SOURCE — ASSOCIATION OF AMERICAN MEDICAL COLLEGES · CLASS OF 2025
+
+Make 30% the dominant statistic because it is especially relevant to Santa Monica College students.
+
+Do NOT use progress bars or dashboard UI.
+
+Instead, make this feel like a statistic spread in a student magazine or academic publication:
+
+oversized numerals
+thin rules
+small monospace labels
+asymmetric editorial grid
+lots of breathing room
+
+Keep the section visually interesting, but not busy.
+
+UPCOMING
+
+Keep one placeholder card only:
+
+“Next PHPA Event”
+
+Fields:
+Date
+Time
+Location
+Short description
+RSVP
+
+Do not invent an event.
+
+Style it like a pinned bulletin notice or event card, not a standard corporate card.
+
+OPPORTUNITIES
+
+Keep three placeholder categories only:
+
+Shadowing
+Volunteering
+Research / Clinical Experience
+
+Each should say:
+“Opportunity coming soon”
+
+Do not invent organizations.
+
+Give these subtle editorial variation, but keep them easy to update.
+
+FINAL JOIN SECTION
+
+Keep:
+
+“You don’t need to have your healthcare career figured out. That’s kind of the point.”
+
+Button:
+Join PHPA
+
+Keep the yellow block, but make it feel more like a pasted poster or printed campus notice than a generic CTA banner. Use one restrained hand-drawn accent only.
+
+OVERALL DESIGN RULES
+
+Keep the site approximately:
+
+70% clean / quiet
+30% quirky / editorial
+
+Use visual references such as:
+
+vintage student newspapers
+old university course catalogs
+field notebooks
+library cards
+graph paper
+bulletin boards
+slightly imperfect print alignment
+
+Do not add:
+
+fake events
+fake opportunities
+fake quotes
+fake statistics
+gradients
+glassmorphism
+generic medical icons
+stock medical photography
+excessive pills
+blobs
+startup-style cards
+extra sections
+
+Preserve all current responsiveness and site functionality.
