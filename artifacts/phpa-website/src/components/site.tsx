@@ -1,12 +1,13 @@
 import { useState, type ReactNode } from 'react';
 import { Link, useLocation } from 'wouter';
 import { ArrowUpRight, Menu, MoveUpRight, X } from 'lucide-react';
+import phpaLogo from '@assets/0_smc_phpa_logo_bg_removed_1787524062474.png';
 
 const navItems = [
   { href: '/', label: 'Home' },
   { href: '/opportunities', label: 'Opportunities' },
   { href: '/events', label: 'Events' },
-  { href: '/guide', label: 'Pathway guide' },
+  { href: '/guide', label: 'Pre-Health Guide' },
   { href: '/about', label: 'About PHPA' },
 ];
 
@@ -17,11 +18,7 @@ export function SiteHeader() {
     <header className="border-b border-[hsl(var(--border))] bg-[hsl(var(--background))]/95 sticky top-0 z-40 backdrop-blur-sm">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 lg:px-8">
         <Link href="/" className="group flex items-center gap-3" data-testid="link-logo">
-          <span className="flex h-10 w-10 rotate-[-4deg] items-center justify-center bg-[hsl(var(--primary))] text-sm font-bold text-[hsl(var(--accent))] transition-transform group-hover:rotate-0">PH</span>
-          <span className="leading-none">
-            <span className="block font-display text-lg font-bold tracking-[-.03em]">SMC PHPA</span>
-            <span className="scribble mt-1 block text-[hsl(var(--muted-foreground))]">Santa Monica College</span>
-          </span>
+          <img src={phpaLogo} alt="Santa Monica College Pre-Health Professional Association" className="h-12 w-12 object-contain transition-transform group-hover:scale-[1.03]" />
         </Link>
         <nav className="hidden items-center gap-1 lg:flex" aria-label="Main navigation">
           {navItems.map((item) => (

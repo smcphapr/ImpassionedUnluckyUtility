@@ -1,6 +1,7 @@
 import { useState, type ReactNode } from 'react';
 import { ArrowDownRight, ArrowRight, ArrowUpRight, CalendarDays, Check, Clock3, ExternalLink, Mail, MapPin, Sparkles } from 'lucide-react';
 import { Link } from 'wouter';
+import phpaLogo from '@assets/0_smc_phpa_logo_bg_removed_1787524062474.png';
 import { events } from '@/data/events';
 import { opportunities, type Opportunity, type OpportunityKind } from '@/data/opportunities';
 import { boardMembers } from '@/data/board';
@@ -17,105 +18,113 @@ function Masthead({ kicker, title, body }: { kicker: string; title: ReactNode; b
 
 function Home() {
   const nextEvent = events.find((event) => event.featured);
-  return <PageFrame>
-    <main>
-      <section className="mx-auto grid max-w-7xl gap-10 px-5 pb-16 pt-14 lg:grid-cols-[1.05fr_.95fr] lg:items-center lg:px-8 lg:pb-24 lg:pt-20">
-        <div className="reveal">
-          <div className="mb-7 flex items-center gap-3">
-            <span className="scribble text-[hsl(var(--muted-foreground))]">Santa Monica College</span>
-            <span className="h-px w-12 bg-[hsl(var(--accent))]" />
+  return (
+    <PageFrame>
+      <main>
+        <section className="mx-auto grid max-w-7xl gap-10 px-5 pb-16 pt-14 lg:grid-cols-[1.05fr_.95fr] lg:items-center lg:px-8 lg:pb-24 lg:pt-20">
+          <div className="reveal">
+            <div className="mb-7 flex items-center gap-3">
+              <span className="scribble text-[hsl(var(--muted-foreground))]">SMC Pre-Health Professional Association</span>
+              <span className="h-px w-12 bg-[hsl(var(--accent))]" />
+            </div>
+            <h1 className="max-w-3xl font-display text-[clamp(4.2rem,10vw,8.5rem)] font-bold leading-[.82] tracking-[-.075em] text-[hsl(var(--primary))]">Find your<br /><span className="relative inline-block text-[hsl(var(--muted-foreground))]">path in<span className="absolute -bottom-2 left-0 h-2 w-full rotate-[-2deg] bg-[hsl(var(--accent))]/75" /></span> healthcare.</h1>
+            <p className="mt-9 max-w-lg text-lg leading-8 text-[hsl(var(--muted-foreground))]">Explore healthcare careers, gain hands-on experience, discover opportunities, and connect with other SMC students on the same path.</p>
+            <div className="mt-9 flex flex-wrap items-center gap-6">
+              <Link href="/join" data-testid="link-hero-join" className="inline-flex items-center gap-3 bg-[hsl(var(--primary))] px-5 py-3.5 text-sm font-bold text-[hsl(var(--primary-foreground))] transition-all hover:-translate-y-1 hover:bg-[hsl(var(--accent))] hover:text-[hsl(var(--accent-foreground))]">Join PHPA <ArrowRight size={17} /></Link>
+              <ArrowLink href="/opportunities" testId="link-hero-events">Explore opportunities</ArrowLink>
+            </div>
+            <p className="mt-7 text-xs tracking-wide text-[hsl(var(--muted-foreground))]">MEDICINE · PA · NURSING · DENTISTRY · PHARMACY · PT · ALLIED HEALTH</p>
           </div>
-          <h1 className="max-w-3xl font-display text-[clamp(4.2rem,10vw,8.5rem)] font-bold leading-[.82] tracking-[-.075em] text-[hsl(var(--primary))]">Find your<br /><span className="relative inline-block text-[hsl(var(--muted-foreground))]">path in<span className="absolute -bottom-2 left-0 h-2 w-full rotate-[-2deg] bg-[hsl(var(--accent))]/75" /></span> healthcare.</h1>
-          <p className="mt-9 max-w-lg text-lg leading-8 text-[hsl(var(--muted-foreground))]">PHPA helps SMC students explore healthcare careers, gain hands-on experience, find opportunities, and meet other students figuring it out too.</p>
-          <div className="mt-9 flex flex-wrap items-center gap-6">
-            <Link href="/join" data-testid="link-hero-join" className="inline-flex items-center gap-3 bg-[hsl(var(--primary))] px-5 py-3.5 text-sm font-bold text-[hsl(var(--primary-foreground))] transition-all hover:-translate-y-1 hover:bg-[hsl(var(--accent))] hover:text-[hsl(var(--accent-foreground))]">Join PHPA <ArrowRight size={17} /></Link>
-            <ArrowLink href="/events" testId="link-hero-events">See what's next</ArrowLink>
-          </div>
-          <p className="mt-7 text-xs tracking-wide text-[hsl(var(--muted-foreground))]">medicine · nursing · PA · dentistry · PT · pharmacy · still figuring it out</p>
-        </div>
-        <div className="relative min-h-[380px] reveal reveal-delay-2 lg:min-h-[520px]">
-          <div className="absolute left-[14%] top-[10%] h-[68%] w-[65%] rotate-[-4deg] border border-[hsl(var(--primary))]/20 bg-[hsl(var(--background))] p-5 paper-shadow">
-            <div className="h-full border border-[hsl(var(--primary))]/20 p-5">
-              <div className="flex items-start justify-between"><span className="font-display text-2xl font-bold">PHPA</span><span className="font-mono-ui text-xs">SMC</span></div>
-              <div className="mt-12 border-y border-[hsl(var(--primary))]/25 py-5">
-                <p className="font-display text-4xl font-bold leading-none text-[hsl(var(--primary))]">Fall<br />2026</p>
+          <div className="relative min-h-[380px] reveal reveal-delay-2 lg:min-h-[520px]">
+            <div className="absolute left-[14%] top-[10%] h-[68%] w-[65%] rotate-[-4deg] border border-[hsl(var(--primary))]/20 bg-[hsl(var(--background))] p-5 paper-shadow">
+              <div className="h-full border border-[hsl(var(--primary))]/20 p-5">
+                <div className="flex items-start justify-between gap-4">
+                  <div>
+                    <span className="font-display text-2xl font-bold">PHPA</span>
+                    <img src={phpaLogo} alt="" className="mt-2 h-7 w-7 object-contain" />
+                    <p className="mt-3 max-w-[150px] font-mono-ui text-[9px] uppercase leading-4 tracking-wider text-[hsl(var(--muted-foreground))]">Pre-Health Professional Association<br />Santa Monica College</p>
+                  </div>
+                  <span className="font-mono-ui text-xs">SMC</span>
+                </div>
+                <div className="mt-12 border-y border-[hsl(var(--primary))]/25 py-5">
+                  <p className="font-display text-4xl font-bold leading-none text-[hsl(var(--primary))]">Fall<br />2026</p>
+                </div>
+                <div className="mt-7 text-xs text-[hsl(var(--muted-foreground))]">explore · learn · connect</div>
               </div>
-              <div className="mt-7 text-xs text-[hsl(var(--muted-foreground))]">explore · learn · connect</div>
             </div>
-          </div>
-          <div className="absolute right-[1%] top-[25%] h-[53%] w-[54%] rotate-[8deg] border border-[hsl(var(--primary))]/20 bg-[hsl(var(--secondary))] px-5 py-6 paper-shadow" aria-hidden="true">
-            <div className="graph-paper h-full border border-dashed border-[hsl(var(--primary))]/20" />
-          </div>
-          <div className="absolute bottom-[10%] left-[7%] flex h-28 w-36 rotate-[5deg] flex-col justify-between border border-[hsl(var(--primary))]/25 bg-[hsl(var(--accent))] p-4 text-[hsl(var(--primary))] paper-shadow">
-            <span className="font-mono-ui text-[10px] uppercase tracking-widest">student note</span>
-            <span className="font-display text-2xl font-bold leading-none">still figuring<br />it out?</span>
-          </div>
-          <span className="absolute right-[16%] top-[14%] z-10 rotate-[15deg] font-display text-4xl text-[hsl(var(--primary))]" aria-hidden="true">✦</span>
-          <span className="absolute bottom-[8%] right-[8%] h-12 w-24 rotate-[-10deg] border-t-2 border-[hsl(var(--primary))]/50" aria-hidden="true" />
-        </div>
-      </section>
-
-      <section className="border-y border-[hsl(var(--border))] bg-[hsl(var(--muted))] px-5 py-5 lg:px-8">
-        <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-4">
-          <p className="scribble">Pre-health, together</p>
-          <p className="text-sm text-[hsl(var(--muted-foreground))]">Student-led · Santa Monica College</p>
-        </div>
-      </section>
-
-      <section className="mx-auto max-w-7xl px-5 py-20 lg:px-8 lg:py-28">
-        <SectionHeading kicker="What are you looking for?" title="Start where you are." />
-        <div className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-          {[
-            ['Find Experience', 'Shadowing, volunteering, and research.', '/opportunities', 'experience'],
-            ['Try Clinical Skills', 'Workshops, simulations, and certifications.', '/events', 'skills'],
-            ['Figure Out Your Path', 'Explore careers and find guidance.', '/guide', 'path'],
-            ['Find Your People', 'Meet other students exploring healthcare.', '/about', 'people'],
-          ].map(([title, text, href, id], index) => <Link href={href} key={id} data-testid={`card-intent-${id}`} className={`group flex min-h-52 flex-col justify-between border border-[hsl(var(--border))] bg-[hsl(var(--card))] p-6 transition-all hover:-translate-y-1 hover:border-[hsl(var(--primary))] hover:shadow-[4px_5px_0_hsl(var(--accent))] ${index === 1 ? 'rotate-[1deg]' : index === 2 ? 'border-t-4 border-t-[hsl(var(--accent))]' : index === 3 ? 'translate-y-2' : ''}`}>
-            <div className="flex items-start justify-between"><span className="font-mono-ui text-xs text-[hsl(var(--muted-foreground))]">0{index + 1}</span><ArrowDownRight size={19} className="text-[hsl(var(--muted-foreground))] transition-transform group-hover:translate-x-1 group-hover:translate-y-1" /></div>
-            <div><h3 className="font-display text-2xl font-bold leading-tight">{title}</h3><p className="mt-3 text-sm leading-6 text-[hsl(var(--muted-foreground))]">{text}</p></div>
-          </Link>)}
-        </div>
-      </section>
-
-      {nextEvent && <section className="mx-auto max-w-7xl px-5 pb-20 lg:px-8 lg:pb-28">
-        <div className="grid overflow-hidden border border-[hsl(var(--primary))] bg-[hsl(var(--primary))] text-[hsl(var(--primary-foreground))] md:grid-cols-[.75fr_1.25fr]">
-          <div className="flex flex-col justify-between border-b border-white/20 p-7 md:border-b-0 md:border-r md:p-10">
-            <div><Tag tone="yellow">Upcoming</Tag></div>
-            <div className="mt-12"><p className="font-mono-ui text-3xl text-[hsl(var(--accent))]">DATE</p><p className="mt-2 text-sm opacity-70">Time to be added</p></div>
-          </div>
-          <div className="p-7 md:p-10"><h2 className="mt-1 max-w-lg font-display text-5xl font-bold leading-[.95] tracking-[-.04em]">{nextEvent.title}</h2><p className="mt-6 max-w-lg leading-7 opacity-75">{nextEvent.description}</p><div className="mt-8 flex flex-wrap gap-5 text-sm opacity-80"><span className="flex items-center gap-2"><MapPin size={16} />{nextEvent.location}</span><span className="flex items-center gap-2"><Clock3 size={16} />{nextEvent.time}</span></div><a href="#" data-testid="link-home-rsvp" className="mt-9 inline-flex items-center gap-2 border-b border-[hsl(var(--accent))] pb-1 text-sm font-bold text-[hsl(var(--accent))]">RSVP <ArrowUpRightIcon /></a></div>
-        </div>
-      </section>}
-
-      <section className="bg-[hsl(var(--secondary))] px-5 py-20 lg:px-8 lg:py-28">
-        <div className="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-[.8fr_1.2fr]">
-          <SectionHeading kicker="The path isn’t one-size-fits-all" title="There’s more than one way into medicine." />
-          <div className="grid gap-6 sm:grid-cols-2">
-            <div className="border-y border-[hsl(var(--primary))]/30 py-5 sm:col-span-2">
-              <p className="font-mono-ui text-xs uppercase tracking-widest text-[hsl(var(--muted-foreground))]">Community college connection</p>
-              <p className="mt-2 font-display text-8xl font-bold leading-none text-[hsl(var(--primary))] md:text-9xl">30%</p>
-              <p className="mt-2 max-w-md text-sm leading-6">of the graduating U.S. medical school Class of 2025 attended classes at a community college.</p>
+            <div className="absolute right-[1%] top-[25%] h-[53%] w-[54%] rotate-[8deg] border border-[hsl(var(--primary))]/20 bg-[hsl(var(--secondary))] px-5 py-6 paper-shadow" aria-hidden="true">
+              <div className="graph-paper h-full border border-dashed border-[hsl(var(--primary))]/20" />
             </div>
+            <div className="absolute bottom-[10%] left-[7%] flex h-28 w-36 rotate-[5deg] flex-col justify-center border border-[hsl(var(--primary))]/25 bg-[hsl(var(--accent))] p-4 text-[hsl(var(--primary))] paper-shadow">
+              <span className="font-display font-bold text-[15px]">NOT SURE YET?<br />THAT'S OKAY.</span>
+            </div>
+            <span className="absolute right-[16%] top-[14%] z-10 rotate-[15deg] font-display text-4xl text-[hsl(var(--primary))]" aria-hidden="true">✦</span>
+            <span className="absolute bottom-[8%] right-[8%] h-12 w-24 rotate-[-10deg] border-t-2 border-[hsl(var(--primary))]/50" aria-hidden="true" />
+          </div>
+        </section>
+
+        <section className="border-y border-[hsl(var(--border))] bg-[hsl(var(--muted))] px-5 py-5 lg:px-8">
+          <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-4">
+            <p className="scribble">Pre-health, together</p>
+            <p className="text-sm text-[hsl(var(--muted-foreground))]">Student-led · Santa Monica College</p>
+          </div>
+        </section>
+
+        <section className="mx-auto max-w-7xl px-5 py-20 lg:px-8 lg:py-28">
+          <SectionHeading kicker="What are you looking for?" title="Start where you are." />
+          <div className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
             {[
-              ['31%', 'Majored in something outside the natural sciences.'],
-              ['94.8%', 'Had at least one undergraduate community-service experience.'],
-              ['85.8%', 'Had at least one undergraduate research experience.'],
-            ].map(([value, label]) => <div key={value} className="border-t border-[hsl(var(--primary))]/30 pt-4"><p className="font-mono-ui text-3xl font-bold text-[hsl(var(--primary))]">{value}</p><p className="mt-2 text-sm leading-6">{label}</p></div>)}
-            <p className="font-mono-ui text-[10px] uppercase tracking-widest text-[hsl(var(--muted-foreground))] sm:col-span-2">Source — Association of American Medical Colleges · Class of 2025</p>
+              ['Find Experience', 'Shadowing, volunteering, and research.', '/opportunities', 'experience'],
+              ['Try Clinical Skills', 'Workshops, simulations, and certifications.', '/events', 'skills'],
+              ['Figure Out Your Path', 'Explore careers and find guidance.', '/guide', 'path'],
+              ['Find Your People', 'Meet other students exploring healthcare.', '/about', 'people'],
+            ].map(([title, text, href, id], index) => <Link href={href} key={id} data-testid={`card-intent-${id}`} className={`group flex min-h-52 flex-col justify-between border border-[hsl(var(--border))] bg-[hsl(var(--card))] p-6 transition-all hover:-translate-y-1 hover:border-[hsl(var(--primary))] hover:shadow-[4px_5px_0_hsl(var(--accent))] ${index === 1 ? 'rotate-[1deg]' : index === 2 ? 'border-t-4 border-t-[hsl(var(--accent))]' : index === 3 ? 'translate-y-2' : ''}`}>
+              <div className="flex items-start justify-between"><span className="font-mono-ui text-xs text-[hsl(var(--muted-foreground))]">0{index + 1}</span><ArrowDownRight size={19} className="text-[hsl(var(--muted-foreground))] transition-transform group-hover:translate-x-1 group-hover:translate-y-1" /></div>
+              <div><h3 className="font-display text-2xl font-bold leading-tight">{title}</h3><p className="mt-3 text-sm leading-6 text-[hsl(var(--muted-foreground))]">{text}</p></div>
+            </Link>)}
           </div>
-        </div>
-      </section>
+        </section>
 
-      <section className="mx-auto max-w-7xl px-5 py-20 lg:px-8 lg:py-28">
-        <div className="flex flex-wrap items-end justify-between gap-6"><SectionHeading kicker="Opportunities preview" title="Coming soon." /><ArrowLink href="/opportunities" testId="link-home-opportunities">See all opportunities</ArrowLink></div>
-        <div className="mt-12 grid gap-5 md:grid-cols-3">{[['Shadowing', 'shadowing-coming-soon'], ['Volunteering', 'volunteering-coming-soon'], ['Research / Clinical Experience', 'clinical-coming-soon']].map(([title, id]) => <article key={id} className="flex min-h-48 flex-col justify-between border border-dashed border-[hsl(var(--border))] bg-[hsl(var(--card))] p-6"><h3 className="font-display text-2xl font-bold">{title}</h3><p className="text-sm text-[hsl(var(--muted-foreground))]">Opportunity coming soon</p></article>)}</div>
-      </section>
+        {nextEvent && <section className="mx-auto max-w-7xl px-5 pb-20 lg:px-8 lg:pb-28">
+          <div className="grid overflow-hidden border border-[hsl(var(--primary))] bg-[hsl(var(--primary))] text-[hsl(var(--primary-foreground))] md:grid-cols-[.75fr_1.25fr]">
+            <div className="flex flex-col justify-between border-b border-white/20 p-7 md:border-b-0 md:border-r md:p-10">
+              <div><Tag tone="yellow">Upcoming</Tag></div>
+              <div className="mt-12"><p className="font-mono-ui text-3xl text-[hsl(var(--accent))]">DATE</p><p className="mt-2 text-sm opacity-70">Time to be added</p></div>
+            </div>
+            <div className="p-7 md:p-10"><h2 className="mt-1 max-w-lg font-display text-5xl font-bold leading-[.95] tracking-[-.04em]">{nextEvent.title}</h2><p className="mt-6 max-w-lg leading-7 opacity-75">{nextEvent.description}</p><div className="mt-8 flex flex-wrap gap-5 text-sm opacity-80"><span className="flex items-center gap-2"><MapPin size={16} />{nextEvent.location}</span><span className="flex items-center gap-2"><Clock3 size={16} />{nextEvent.time}</span></div><a href="#" data-testid="link-home-rsvp" className="mt-9 inline-flex items-center gap-2 border-b border-[hsl(var(--accent))] pb-1 text-sm font-bold text-[hsl(var(--accent))]">RSVP <ArrowUpRightIcon /></a></div>
+          </div>
+        </section>}
 
-      <section className="mx-5 mb-4 overflow-hidden bg-[hsl(var(--accent))] lg:mx-8">
-        <div className="mx-auto grid max-w-7xl items-center gap-8 px-7 py-12 md:grid-cols-[1.2fr_.8fr] md:px-12 md:py-16"><div><h2 className="max-w-2xl font-display text-5xl font-bold leading-[.9] tracking-[-.05em] text-[hsl(var(--primary))] md:text-6xl">You don’t need to have your healthcare career figured out. That’s kind of the point.</h2></div><div className="md:justify-self-end"><Link href="/join" data-testid="link-home-join" className="inline-flex items-center gap-3 bg-[hsl(var(--primary))] px-5 py-3.5 text-sm font-bold text-[hsl(var(--primary-foreground))] transition-transform hover:-translate-y-1">Join PHPA <ArrowRight size={17} /></Link></div></div>
-      </section>
-    </main>
-  </PageFrame>;
+        <section className="bg-[hsl(var(--secondary))] px-5 py-20 lg:px-8 lg:py-28">
+          <div className="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-[.8fr_1.2fr]">
+            <SectionHeading kicker="The path isn’t one-size-fits-all" title="There’s more than one way into medicine." />
+            <div className="grid gap-6 sm:grid-cols-2">
+              <div className="border-y border-[hsl(var(--primary))]/30 py-5 sm:col-span-2">
+                <p className="font-mono-ui text-xs uppercase tracking-widest text-[hsl(var(--muted-foreground))]">Community college connection</p>
+                <p className="mt-2 font-display text-8xl font-bold leading-none text-[hsl(var(--primary))] md:text-9xl">30%</p>
+                <p className="mt-2 max-w-md text-sm leading-6">of the graduating U.S. medical school Class of 2025 attended classes at a community college.</p>
+              </div>
+              {[
+                ['31%', 'Majored in something outside the natural sciences.'],
+                ['94.8%', 'Had at least one undergraduate community-service experience.'],
+                ['85.8%', 'Had at least one undergraduate research experience.'],
+              ].map(([value, label]) => <div key={value} className="border-t border-[hsl(var(--primary))]/30 pt-4"><p className="font-mono-ui text-3xl font-bold text-[hsl(var(--primary))]">{value}</p><p className="mt-2 text-sm leading-6">{label}</p></div>)}
+              <p className="font-mono-ui text-[10px] uppercase tracking-widest text-[hsl(var(--muted-foreground))] sm:col-span-2">Source — Association of American Medical Colleges · Class of 2025</p>
+            </div>
+          </div>
+        </section>
+
+        <section className="mx-auto max-w-7xl px-5 py-20 lg:px-8 lg:py-28">
+          <div className="flex flex-wrap items-end justify-between gap-6"><SectionHeading kicker="Opportunities preview" title="Coming soon." /><ArrowLink href="/opportunities" testId="link-home-opportunities">See all opportunities</ArrowLink></div>
+          <div className="mt-12 grid gap-5 md:grid-cols-3">{[['Shadowing', 'shadowing-coming-soon'], ['Volunteering', 'volunteering-coming-soon'], ['Research / Clinical Experience', 'clinical-coming-soon']].map(([title, id]) => <article key={id} className="flex min-h-48 flex-col justify-between border border-dashed border-[hsl(var(--border))] bg-[hsl(var(--card))] p-6"><h3 className="font-display text-2xl font-bold">{title}</h3><p className="text-sm text-[hsl(var(--muted-foreground))]">Opportunity coming soon</p></article>)}</div>
+        </section>
+
+        <section className="mx-5 mb-4 overflow-hidden bg-[hsl(var(--accent))] lg:mx-8">
+          <div className="mx-auto grid max-w-7xl items-center gap-8 px-7 py-12 md:grid-cols-[1.2fr_.8fr] md:px-12 md:py-16"><div><h2 className="max-w-2xl font-display text-5xl font-bold leading-[.9] tracking-[-.05em] text-[hsl(var(--primary))] md:text-6xl">You don’t need to have your healthcare career figured out. That’s kind of the point.</h2></div><div className="md:justify-self-end"><Link href="/join" data-testid="link-home-join" className="inline-flex items-center gap-3 bg-[hsl(var(--primary))] px-5 py-3.5 text-sm font-bold text-[hsl(var(--primary-foreground))] transition-transform hover:-translate-y-1">Join PHPA <ArrowRight size={17} /></Link></div></div>
+        </section>
+      </main>
+    </PageFrame>
+  );
 }
 
 function ArrowUpRightIcon() { return <ArrowUpRight size={15} />; }
