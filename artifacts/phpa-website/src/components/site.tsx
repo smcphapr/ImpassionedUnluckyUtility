@@ -74,8 +74,7 @@ export function SiteFooter() {
         <div>
           <p className="scribble mb-4 text-[hsl(var(--accent))]">Keep in touch</p>
           <div className="grid gap-3 text-sm opacity-80">
-            <a href="mailto:phpa@smc.edu" data-testid="link-footer-email" className="transition-opacity hover:opacity-100">phpa@smc.edu</a>
-            <a href="#" data-testid="link-footer-instagram" className="transition-opacity hover:opacity-100">Instagram ↗</a>
+            <span className="opacity-70">Contact details coming soon</span>
             <Link href="/join" data-testid="link-footer-join" className="transition-opacity hover:opacity-100">Join the mailing list ↗</Link>
           </div>
         </div>
