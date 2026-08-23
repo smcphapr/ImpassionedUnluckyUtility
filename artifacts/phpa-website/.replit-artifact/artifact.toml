@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "SMC PHPA"
+description = "A warm, editorial campus website for Santa Monica College's Pre-Health Professional Association, helping students explore healthcare paths, find opportunities, and connect with peers."
+version = "1.0.0"
+id = "artifacts/phpa-website"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 23378
+
+[services.development]
+run = "pnpm --filter @workspace/phpa-website run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/phpa-website", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/phpa-website/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "23378"
+BASE_PATH = "/"

@@ -1,0 +1,155 @@
+Build a polished, responsive website for Santa Monica College Pre-Health Professional Association (PHPA).
+
+This is a student-run organization for students exploring medicine, PA, nursing, dentistry, physical therapy, pharmacy, allied health, and students who are still figuring out their path.
+
+The site should feel youthful, editorial, campus-focused, and slightly scrapbook/zine-inspired, but still clean and credible. It should NOT look like a hospital website, generic nonprofit template, corporate SaaS site, or overly cute Canva graphic.
+
+Use this visual system:
+
+Warm cream background: #F4F0E6
+Muted navy: #18365B
+Faded yellow: #D9B85F
+Dusty blue: #8FA9C1
+Dark ink: #202A32
+Soft paper blue: #D7E0E5
+Headline font style: editorial serif similar to DM Serif Display
+Body/navigation: clean sans serif similar to DM Sans
+Handwritten accents should be sparse and subtle
+
+Overall look:
+
+student publication / campus magazine
+asymmetrical but organized
+cream paper feel
+subtle hand-drawn stars, arrows, underlines, tape, paper scraps, notebook/grid accents
+real-looking empty image placeholders, not AI-generated people
+no gradients
+no glossy 3D
+no generic medical icons
+no stock stethoscope imagery
+no bright clinical blue
+no excessive rounded pills
+no huge blocks of text
+
+Build these pages:
+
+1. Home
+Hero:
+
+small label: “SANTA MONICA COLLEGE”
+large headline: “Find your path in healthcare.”
+supporting copy: “PHPA helps SMC students explore healthcare careers, gain hands-on experience, find opportunities, and meet other students figuring it out too.”
+buttons: Join PHPA and See What’s Next
+small line underneath: “medicine · nursing · PA · dentistry · PT · pharmacy · still figuring it out”
+
+Then add:
+
+What do you want to do? with four cards:
+Find Experience — shadowing, volunteering, research
+Try Clinical Skills — workshops, simulations, certifications
+Figure Out Your Path — careers, prerequisites, guidance
+Find Your People — study groups and community
+Next Up at PHPA featured event card
+You Told Us What You Want with:
+87.5% want shadowing opportunities
+83.3% want hands-on experiences
+83.3% want career guidance
+79.2% want volunteering opportunities
+New Opportunities preview cards
+final join section with the line:
+“You don’t need to have your healthcare career figured out. That’s kind of the point.”
+
+2. Opportunities
+Create sections for:
+
+Shadowing
+Clinical Experience
+Volunteering
+Research
+
+Add a featured section at the top:
+PHPA Shadowing Network
+“We’re building a network connecting SMC pre-health students with healthcare professionals willing to let students experience their field firsthand.”
+Button: Join the Shadowing Interest List
+
+Opportunity cards should have:
+
+organization
+type
+location
+one-sentence description
+button: View Opportunity
+
+3. Events
+Add:
+
+featured next event
+Fall 2026 event cards
+categories like Skills, Speaker, Workshop, Social
+event title, date, time, location, short description, RSVP button
+small past-events archive at bottom
+
+4. Pre-Health Guide
+Heading: “Not sure where you’re going yet?”
+Add pathway cards for:
+
+Medicine MD/DO
+Physician Assistant
+Nursing
+Dentistry
+Pharmacy
+Physical Therapy
+Other Health Careers
+Still Figuring It Out
+
+Each pathway should show:
+
+what they do
+typical education path
+what to explore at SMC
+experience to look for
+questions to ask a counselor
+
+Include a disclaimer to verify academic requirements with SMC Counseling and individual programs.
+
+Add a PHPA Study Match section for:
+
+Chem 10
+Chem 11
+Chem 12
+Bio 21
+Anatomy
+Microbiology
+
+5. About
+Heading: “We’re students figuring it out too.”
+Add:
+
+short PHPA mission
+board member grid with photo placeholders
+fields for name, role, pre-health path, year, specialty interest
+small contact section with Instagram, email, and Join PHPA link
+
+Navigation:
+
+PHPA wordmark on left
+Home
+Opportunities
+Events
+Pre-Health Guide
+About
+Join PHPA button on right
+
+Technical requirements:
+
+responsive on desktop and mobile
+simple static site architecture
+easy for future student board members to update
+store editable event and opportunity content in clearly labeled data files, such as events.json, opportunities.json, and board.json
+add comments in those files explaining exactly what future board members should edit
+avoid unnecessary backend/database complexity
+use reusable components
+use semantic HTML and accessible contrast
+build the full site with placeholder links where needed
+
+Most important: make the design feel cool, student-led, editorial, warm, and memorable, not generic. Use visual restraint. The site should feel like the web version of a well-designed campus zine.
