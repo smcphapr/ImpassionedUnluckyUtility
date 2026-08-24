@@ -5,6 +5,7 @@ export const boardMembers = [
     initials: "VG",
     role: "President",
     email: "galindo_valeria01@student.smc.edu",
+    photo: "",
   },
   {
     id: "athina-daher-anenberg",
@@ -12,6 +13,7 @@ export const boardMembers = [
     initials: "AD",
     role: "Vice President",
     email: "daher-anenberg_athin@student.smc.edu",
+    photo: "",
   },
   {
     id: "rebecca-ben-yakov",
@@ -19,6 +21,7 @@ export const boardMembers = [
     initials: "RB",
     role: "Co-Vice President",
     email: "ben-yakov_rebecca_01@student.smc.edu",
+    photo: "",
   },
   {
     id: "allison-kalmick",
@@ -26,6 +29,7 @@ export const boardMembers = [
     initials: "AK",
     role: "Secretary",
     email: "kalmick_allison01@student.smc.edu",
+    photo: "",
   },
   {
     id: "ray-chang",
@@ -33,6 +37,7 @@ export const boardMembers = [
     initials: "RC",
     role: "Treasurer",
     email: "chang_huan-jui01@student.smc.edu",
+    photo: "",
   },
   {
     id: "sarvin-torab",
@@ -40,6 +45,7 @@ export const boardMembers = [
     initials: "ST",
     role: "ICC Delegate",
     email: "torab_seydeh_sarvi01@student.smc.edu",
+    photo: "",
   },
   {
     id: "brooke-lamkin",
@@ -47,6 +53,7 @@ export const boardMembers = [
     initials: "BL",
     role: "PR Representative",
     email: "Lamkin_brooke_vell01@student.smc.edu",
+    photo: "",
   },
   {
     id: "sophie-marcus",
@@ -54,5 +61,6 @@ export const boardMembers = [
     initials: "SM",
     role: "Outreach Coordinator",
     email: "marcus_sophie_leil01@student.smc.edu",
+    photo: "",
   },
 ];

@@ -1303,11 +1303,19 @@ function About() {
                   data-testid={`card-board-${member.id}`}
                 >
                   {/* KEEP THIS PLACEHOLDER UNTIL REAL PHOTOS ARE ADDED */}
-                  <PhotoPlaceholder
-                    initials={member.initials}
-                    label={member.name}
-                  />
-
+                  {member.photo ? (
+                    <img
+                      src={member.photo}
+                      alt={member.name}
+                      className="aspect-[4/5] w-full object-cover"
+                    />
+                  ) : (
+                    <PhotoPlaceholder
+                      initials={member.initials}
+                      label={member.name}
+                    />
+                  )}
+                  /
                   <div className="border-b border-[hsl(var(--primary))]/25 pb-5 pt-4">
                     <h3 className="font-display text-2xl font-bold">
                       {member.name}
