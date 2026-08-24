@@ -1,20 +1,58 @@
-// EDIT THIS FILE each academic year: add headshots when available and update board roles.
-export type BoardMember = {
-  id: string;
-  name: string;
-  role: string;
-  path: string;
-  year: string;
-  specialty: string;
-  initials: string;
-  email: string;
-};
-
-export const boardMembers: BoardMember[] = [
-  { id: 'maya-patel', name: 'Maya Patel', role: 'President', path: 'MD / DO', year: 'Class of 2027', specialty: 'Human Biology', initials: 'MP', email: 'maya.patel@smc.edu' },
-  { id: 'noah-williams', name: 'Noah Williams', role: 'Vice President', path: 'PA', year: 'Class of 2026', specialty: 'Psychology', initials: 'NW', email: 'noah.williams@smc.edu' },
-  { id: 'sophia-chen', name: 'Sophia Chen', role: 'Events Editor', path: 'Nursing', year: 'Class of 2027', specialty: 'Kinesiology', initials: 'SC', email: 'sophia.chen@smc.edu' },
-  { id: 'andre-rodriguez', name: 'Andre Rodriguez', role: 'Opportunities Editor', path: 'Dentistry', year: 'Class of 2026', specialty: 'Chemistry', initials: 'AR', email: 'andre.rodriguez@smc.edu' },
-  { id: 'jules-okafor', name: 'Jules Okafor', role: 'Study Match Lead', path: 'Pharmacy', year: 'Class of 2028', specialty: 'Life Science', initials: 'JO', email: 'jules.okafor@smc.edu' },
-  { id: 'lina-haddad', name: 'Lina Haddad', role: 'Community Editor', path: 'PT', year: 'Class of 2027', specialty: 'Communication Studies', initials: 'LH', email: 'lina.haddad@smc.edu' },
+export const boardMembers = [
+  {
+    id: "valeria-galindo",
+    name: "Valeria Galindo",
+    initials: "VG",
+    role: "President",
+    email: "galindo_valeria01@student.smc.edu",
+  },
+  {
+    id: "athina-daher-anenberg",
+    name: "Athina Daher-Anenberg",
+    initials: "AD",
+    role: "Vice President",
+    email: "daher-anenberg_athin@student.smc.edu",
+  },
+  {
+    id: "rebecca-ben-yakov",
+    name: "Rebecca Ben-Yakov",
+    initials: "RB",
+    role: "Co-Vice President",
+    email: "ben-yakov_rebecca_01@student.smc.edu",
+  },
+  {
+    id: "allison-kalmick",
+    name: "Allison Kalmick",
+    initials: "AK",
+    role: "Secretary",
+    email: "kalmick_allison01@student.smc.edu",
+  },
+  {
+    id: "ray-chang",
+    name: "Ray Chang",
+    initials: "RC",
+    role: "Treasurer",
+    email: "chang_huan-jui01@student.smc.edu",
+  },
+  {
+    id: "sarvin-torab",
+    name: "Sarvin Torab",
+    initials: "ST",
+    role: "ICC Delegate",
+    email: "torab_seydeh_sarvi01@student.smc.edu",
+  },
+  {
+    id: "brooke-lamkin",
+    name: "Brooke Lamkin",
+    initials: "BL",
+    role: "PR Representative",
+    email: "Lamkin_brooke_vell01@student.smc.edu",
+  },
+  {
+    id: "sophie-marcus",
+    name: "Sophie Marcus",
+    initials: "SM",
+    role: "Outreach Coordinator",
+    email: "marcus_sophie_leil01@student.smc.edu",
+  },
 ];
