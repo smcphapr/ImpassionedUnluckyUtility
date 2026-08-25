@@ -587,31 +587,41 @@ function Opportunities() {
             <span className="absolute right-6 top-6 font-mono-ui text-7xl text-[hsl(var(--primary))]/10">
               01
             </span>
-            <Tag tone="yellow">Featured network</Tag>
+
+            <Tag tone="yellow">Featured opportunity</Tag>
+
             <div className="mt-12 grid gap-10 md:grid-cols-[.8fr_1.2fr] md:items-end">
               <div>
                 <p className="scribble text-[hsl(var(--muted-foreground))]">
-                  Start here if you want to observe
+                  Clinical experience · Westwood + Santa Monica
                 </p>
+
                 <h2 className="mt-3 max-w-md font-display text-4xl font-bold leading-none tracking-[-.04em]">
-                  UCLA Health Student Shadowing Network
+                  UCLA Health Care Extender Program
                 </h2>
               </div>
+
               <div>
                 <p className="max-w-xl leading-7 text-[hsl(var(--muted-foreground))]">
-                  {opportunities[0].description}
+                  A year-long clinical volunteer program for college students
+                  interested in healthcare. Care Extenders rotate through
+                  hospital departments and work alongside patient care teams.
                 </p>
+
                 <div className="mt-7 flex flex-wrap gap-4 text-sm">
                   <span className="flex items-center gap-2">
                     <MapPin size={15} />
-                    {opportunities[0].location}
+                    Westwood + Santa Monica
                   </span>
+
                   <a
-                    href={opportunities[0].link}
+                    href="https://www.uclahealth.org/volunteer/care-extender"
+                    target="_blank"
+                    rel="noreferrer"
                     data-testid="link-featured-opportunity"
                     className="flex items-center gap-2 font-bold underline decoration-[hsl(var(--accent))] decoration-2 underline-offset-4"
                   >
-                    View interest form <ExternalLink size={14} />
+                    View program details <ExternalLink size={14} />
                   </a>
                 </div>
               </div>

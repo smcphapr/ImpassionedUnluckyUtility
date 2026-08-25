@@ -1,62 +1,46 @@
-// EDIT THIS FILE each term: replace these placeholders with confirmed listings,
-// locations, descriptions, and links before publishing.
-export type OpportunityKind =
-  | "Shadowing"
-  | "Clinical experience"
-  | "Volunteering"
-  | "Research";
-
-export type Opportunity = {
-  id: string;
-  organization: string;
-  type: OpportunityKind;
-  location: string;
-  description: string;
-  linkLabel: string;
-  link: string;
-  featured?: boolean;
-};
-
 export const opportunities: Opportunity[] = [
   {
-    id: "shadowing-coming-soon",
-    organization: "Shadowing opportunities",
-    type: "Shadowing",
-    location: "Santa Monica / Los Angeles",
+    id: "ucla-care-extender-fall-2026",
+    organization: "UCLA Health Care Extender Program",
+    type: "Clinical experience",
+    location: "Westwood + Santa Monica",
     description:
-      "We are building a list of shadowing opportunities for SMC students interested in exploring different healthcare careers.",
-    linkLabel: "Coming soon",
-    link: "#",
+      "A year-long clinical volunteer program for college students interested in healthcare. Care Extenders rotate through hospital departments and work alongside patient care teams. Fall 2026 orientation sign-ups open August 25.",
+    linkLabel: "View Fall 2026 admissions",
+    link: "https://www.uclahealth.org/volunteer/care-extender",
     featured: true,
   },
+
   {
-    id: "clinical-coming-soon",
-    organization: "Clinical experience",
-    type: "Clinical experience",
-    location: "Santa Monica / Los Angeles",
-    description:
-      "Clinical experience listings and programs will be added here as they are confirmed.",
-    linkLabel: "Coming soon",
-    link: "#",
-  },
-  {
-    id: "volunteering-coming-soon",
-    organization: "Volunteering opportunities",
+    id: "cedars-sinai-adult-volunteer",
+    organization: "Cedars-Sinai Adult Volunteer Program",
     type: "Volunteering",
-    location: "Santa Monica / Los Angeles",
-    description:
-      "Volunteer opportunities in healthcare and community settings will be added here as they are confirmed.",
-    linkLabel: "Coming soon",
-    link: "#",
-  },
-  {
-    id: "research-coming-soon",
-    organization: "Research opportunities",
-    type: "Research",
     location: "Los Angeles",
     description:
-      "Research opportunities for SMC students will be shared here as they become available.",
-    linkLabel: "Coming soon",
-    link: "#",
+      "Volunteer throughout Cedars-Sinai in patient-facing and hospital support roles. Applications are accepted year-round, with typical four-hour weekly shifts.",
+    linkLabel: "Apply to volunteer",
+    link: "https://www.cedars-sinai.org/volunteer-services/general.html",
+  },
+
+  {
+    id: "venice-family-clinic-volunteer",
+    organization: "Venice Family Clinic",
+    type: "Volunteering",
+    location: "West Los Angeles",
+    description:
+      "Volunteer with one of the Westside’s largest community health organizations. Opportunities can include clinic support, community events, and roles that provide exposure to serving diverse patient populations.",
+    linkLabel: "Explore volunteer opportunities",
+    link: "https://venicefamilyclinic.org/volunteer/",
+  },
+
+  {
+    id: "chla-pre-pa-shadowing",
+    organization: "Children’s Hospital Los Angeles — Pre-PA Observation",
+    type: "Shadowing",
+    location: "Los Angeles",
+    description:
+      "CHLA offers limited pediatric job-shadow opportunities for students who are in the process of applying to an accredited PA program. Observation requests are accepted on a rolling basis and are limited to 40 hours.",
+    linkLabel: "View Pre-PA requirements",
+    link: "https://www.chla.org/office-advanced-practice/advanced-practice-provider-student-clinical-rotations",
   },
 ];
