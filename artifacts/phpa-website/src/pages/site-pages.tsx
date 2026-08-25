@@ -418,59 +418,60 @@ function Home() {
           <div className="flex flex-wrap items-end justify-between gap-6">
             <SectionHeading
               kicker="Opportunities"
-              title="Ways to get involved."
+              title="A few places to start."
             />
 
-            <ArrowLink href="/opportunities" testId="link-home-opportunities">
+            <ArrowLink
+              href="/opportunities"
+              testId="link-home-opportunities"
+            >
               See all opportunities
             </ArrowLink>
           </div>
 
           <p className="mt-5 max-w-2xl leading-7 text-[hsl(var(--muted-foreground))]">
-            We&apos;re building a collection of opportunities for SMC students
-            to gain experience beyond the classroom.
+            We&apos;re always adding new shadowing, clinical, volunteer, and research
+            opportunities as we find them.
           </p>
 
-          <div className="mt-12 grid gap-5 md:grid-cols-3">
-            {[
-              [
-                "Shadowing",
-                "Observe healthcare professionals and explore specialties firsthand.",
-                "01",
-              ],
-              [
-                "Volunteering",
-                "Find ways to serve patients and communities while gaining meaningful experience.",
-                "02",
-              ],
-              [
-                "Research & Clinical Experience",
-                "Discover opportunities to build practical and academic experience.",
-                "03",
-              ],
-            ].map(([title, text, number]) => (
-              <article
-                key={title}
-                className="flex min-h-64 flex-col justify-between border border-[hsl(var(--border))] bg-[hsl(var(--card))] p-6"
+          <div className="mt-12 border-t border-[hsl(var(--border))]">
+            {opportunities.slice(0, 3).map((item, index) => (
+              <a
+                key={item.id}
+                href={item.link}
+                target="_blank"
+                rel="noreferrer"
+                className="group grid gap-4 border-b border-[hsl(var(--border))] py-6 transition-colors hover:bg-[hsl(var(--muted))] md:grid-cols-[55px_1.1fr_.9fr_auto] md:items-center md:px-4"
               >
+                <span className="font-mono-ui text-[10px] text-[hsl(var(--muted-foreground))]">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+
                 <div>
-                  <p className="font-mono-ui text-xs text-[hsl(var(--muted-foreground))]">
-                    {number}
+                  <p className="font-mono-ui text-[9px] uppercase tracking-[.14em] text-[hsl(var(--muted-foreground))]">
+                    {item.type}
                   </p>
 
-                  <h3 className="mt-10 font-display text-2xl font-bold leading-tight">
-                    {title}
+                  <h3 className="mt-2 font-display text-2xl font-bold leading-tight text-[hsl(var(--primary))]">
+                    {item.organization}
                   </h3>
+                </div>
 
-                  <p className="mt-4 text-sm leading-6 text-[hsl(var(--muted-foreground))]">
-                    {text}
+                <div>
+                  <p className="text-sm text-[hsl(var(--muted-foreground))]">
+                    {item.location}
+                  </p>
+
+                  <p className="mt-2 line-clamp-2 max-w-md text-sm leading-6 text-[hsl(var(--muted-foreground))]">
+                    {item.description}
                   </p>
                 </div>
 
-                <p className="mt-8 font-mono-ui text-[10px] uppercase tracking-widest text-[hsl(var(--muted-foreground))]">
-                  Listings coming soon
-                </p>
-              </article>
+                <ArrowUpRight
+                  size={18}
+                  className="text-[hsl(var(--muted-foreground))] transition-transform group-hover:-translate-y-1 group-hover:translate-x-1"
+                />
+              </a>
             ))}
           </div>
         </section>
