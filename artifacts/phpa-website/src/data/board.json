@@ -1,0 +1,66 @@
+[
+  {
+    "id": "valeria-galindo",
+    "name": "Valeria Galindo",
+    "initials": "VG",
+    "role": "President",
+    "email": "galindo_valeria01@student.smc.edu",
+    "photo": ""
+  },
+  {
+    "id": "athina-daher-anenberg",
+    "name": "Athina Daher-Anenberg",
+    "initials": "AD",
+    "role": "Vice President",
+    "email": "daher-anenberg_athin@student.smc.edu",
+    "photo": ""
+  },
+  {
+    "id": "rebecca-ben-yakov",
+    "name": "Rebecca Ben-Yakov",
+    "initials": "RB",
+    "role": "Co-Vice President",
+    "email": "ben-yakov_rebecca_01@student.smc.edu",
+    "photo": ""
+  },
+  {
+    "id": "allison-kalmick",
+    "name": "Allison Kalmick",
+    "initials": "AK",
+    "role": "Secretary",
+    "email": "kalmick_allison01@student.smc.edu",
+    "photo": ""
+  },
+  {
+    "id": "ray-chang",
+    "name": "Ray Chang",
+    "initials": "RC",
+    "role": "Treasurer",
+    "email": "chang_huan-jui01@student.smc.edu",
+    "photo": ""
+  },
+  {
+    "id": "sarvin-torab",
+    "name": "Sarvin Torab",
+    "initials": "ST",
+    "role": "ICC Delegate",
+    "email": "torab_seydeh_sarvi01@student.smc.edu",
+    "photo": ""
+  },
+  {
+    "id": "brooke-lamkin",
+    "name": "Brooke Lamkin",
+    "initials": "BL",
+    "role": "PR Representative",
+    "email": "Lamkin_brooke_vell01@student.smc.edu",
+    "photo": ""
+  },
+  {
+    "id": "sophie-marcus",
+    "name": "Sophie Marcus",
+    "initials": "SM",
+    "role": "Outreach Coordinator",
+    "email": "marcus_sophie_leil01@student.smc.edu",
+    "photo": ""
+  }
+]

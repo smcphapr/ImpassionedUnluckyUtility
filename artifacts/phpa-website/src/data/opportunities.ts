@@ -1,3 +1,20 @@
+export type OpportunityKind =
+  | "Shadowing"
+  | "Clinical experience"
+  | "Volunteering"
+  | "Research";
+
+export type Opportunity = {
+  id: string;
+  organization: string;
+  type: OpportunityKind;
+  location: string;
+  description: string;
+  linkLabel: string;
+  link: string;
+  featured?: boolean;
+};
+
 export const opportunities: Opportunity[] = [
   {
     id: "ucla-care-extender-fall-2026",

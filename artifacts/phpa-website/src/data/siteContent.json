@@ -1,0 +1,36 @@
+{
+  "home": {
+    "eyebrow": "Santa Monica College",
+    "headline": "Find your path in healthcare.",
+    "description": "Explore healthcare careers, gain hands-on experience, find real opportunities, and meet other SMC students figuring it out too.",
+    "primaryLinkLabel": "Join PHPA",
+    "secondaryLinkLabel": "Explore opportunities",
+    "pathwayLine": "MEDICINE · PA · NURSING · DENTISTRY · PHARMACY · PT · ALLIED HEALTH",
+    "intentCards": [
+      {
+        "title": "Find Experience",
+        "description": "Shadowing, volunteering, and research.",
+        "href": "/opportunities",
+        "id": "experience"
+      },
+      {
+        "title": "Try Clinical Skills",
+        "description": "Workshops, simulations, and certifications.",
+        "href": "/events",
+        "id": "skills"
+      },
+      {
+        "title": "Figure Out Your Path",
+        "description": "Explore careers and find guidance.",
+        "href": "/guide",
+        "id": "path"
+      },
+      {
+        "title": "Find Your People",
+        "description": "Meet other students exploring healthcare.",
+        "href": "/about",
+        "id": "people"
+      }
+    ]
+  }
+}

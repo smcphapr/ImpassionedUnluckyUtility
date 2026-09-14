@@ -13,7 +13,7 @@ import {
 } from "lucide-react";
 import { Link } from "wouter";
 import phpaLogo from "@assets/0_smc_phpa_logo_bg_removed_1787524062474.png";
-import { events } from "@/data/events";
+import { events } from "../data/events";
 import {
   opportunities,
   type Opportunity,
@@ -21,6 +21,7 @@ import {
 } from "@/data/opportunities";
 import { boardMembers } from "@/data/board";
 import { pathways, studyMatch, type Pathway } from "@/data/guide";
+import siteContent from "@/data/siteContent.json";
 import {
   ArrowLink,
   NotebookRule,
@@ -55,6 +56,16 @@ function Masthead({
 }
 
 function Home() {
+  const homeContent = siteContent.home;
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+  const nextEvent = events
+    .filter((event) => {
+      const eventDate = new Date(`${event.date}T00:00:00`);
+      return event.date && !Number.isNaN(eventDate.getTime()) && eventDate >= today;
+    })
+    .sort((a, b) => a.date.localeCompare(b.date))[0];
+
   return (
     <PageFrame>
       <main>
@@ -63,7 +74,7 @@ function Home() {
           <div className="reveal">
             <div className="mb-7 flex items-center gap-3">
               <span className="scribble text-[hsl(var(--muted-foreground))]">
-                Santa Monica College
+                {homeContent.eyebrow}
               </span>
               <span className="h-px w-12 bg-[hsl(var(--accent))]" />
             </div>
@@ -79,8 +90,7 @@ function Home() {
             </h1>
 
             <p className="mt-9 max-w-xl text-lg leading-8 text-[hsl(var(--muted-foreground))]">
-              Explore healthcare careers, gain hands-on experience, find real
-              opportunities, and meet other SMC students figuring it out too.
+              {homeContent.description}
             </p>
 
             <div className="mt-9 flex flex-wrap items-center gap-6">
@@ -89,17 +99,16 @@ function Home() {
                 data-testid="link-hero-join"
                 className="inline-flex items-center gap-3 bg-[hsl(var(--primary))] px-5 py-3.5 text-sm font-bold text-[hsl(var(--primary-foreground))] transition-all hover:-translate-y-1 hover:bg-[hsl(var(--accent))] hover:text-[hsl(var(--accent-foreground))]"
               >
-                Join PHPA <ArrowRight size={17} />
+                {homeContent.primaryLinkLabel} <ArrowRight size={17} />
               </Link>
 
               <ArrowLink href="/opportunities" testId="link-hero-opportunities">
-                Explore opportunities
+                {homeContent.secondaryLinkLabel}
               </ArrowLink>
             </div>
 
             <p className="mt-7 text-xs tracking-wide text-[hsl(var(--muted-foreground))]">
-              MEDICINE · PA · NURSING · DENTISTRY · PHARMACY · PT · ALLIED
-              HEALTH
+              {homeContent.pathwayLine}
             </p>
           </div>
 
@@ -200,32 +209,7 @@ function Home() {
           />
 
           <div className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-            {[
-              [
-                "Find Experience",
-                "Shadowing, volunteering, research, and clinical opportunities.",
-                "/opportunities",
-                "experience",
-              ],
-              [
-                "Build Your Skills",
-                "Workshops, clinical skills, simulations, and practical experience.",
-                "/events",
-                "skills",
-              ],
-              [
-                "Explore Careers",
-                "Compare healthcare paths, prerequisites, timelines, and next steps.",
-                "/guide",
-                "path",
-              ],
-              [
-                "Find Your People",
-                "Meet other SMC students exploring healthcare careers.",
-                "/about",
-                "people",
-              ],
-            ].map(([title, text, href, id], index) => (
+            {homeContent.intentCards.map(({ title, description, href, id }, index) => (
               <Link
                 href={href}
                 key={id}
@@ -256,7 +240,7 @@ function Home() {
                     {title}
                   </h3>
                   <p className="mt-3 text-sm leading-6 text-[hsl(var(--muted-foreground))]">
-                    {text}
+                    {description}
                   </p>
                 </div>
               </Link>
@@ -265,7 +249,7 @@ function Home() {
         </section>
 
         {/* NEXT EVENT */}
-        <section className="mx-auto max-w-7xl px-5 pb-20 lg:px-8 lg:pb-28">
+        {nextEvent && <section className="mx-auto max-w-7xl px-5 pb-20 lg:px-8 lg:pb-28">
           <div className="grid overflow-hidden border border-[hsl(var(--primary))] bg-[hsl(var(--primary))] text-[hsl(var(--primary-foreground))] md:grid-cols-[.72fr_1.28fr]">
             {/* DATE / LABEL SIDE */}
             <div className="flex flex-col justify-between border-b border-white/20 p-7 md:border-b-0 md:border-r md:p-10">
@@ -275,57 +259,36 @@ function Home() {
 
               <div className="mt-12">
                 <p className="font-mono-ui text-5xl leading-none text-[hsl(var(--accent))]">
-                  SEP
-                  <br />
-                  08
+                  {nextEvent.dateLabel}
                 </p>
 
-                <p className="mt-4 text-sm opacity-70">
-                  Tuesday · 11:15 AM–12:30 PM
-                </p>
+                <p className="mt-4 text-sm opacity-70">{nextEvent.time}</p>
               </div>
             </div>
 
             {/* EVENT INFO SIDE */}
             <div className="p-7 md:p-10">
-              <p className="scribble opacity-65">
-                Lab essentials · limited stock
-              </p>
+              <p className="scribble opacity-65">{nextEvent.category}</p>
 
               <h2 className="mt-3 max-w-lg font-display text-5xl font-bold leading-[.95] tracking-[-.04em]">
-                Lab Coat Sale
+                {nextEvent.title}
               </h2>
 
               <p className="mt-6 max-w-lg leading-7 opacity-75">
-                Need a lab coat for class? Stop by for washed and ready-to-use
-                lab coats and goggles. Come early — quantities are limited.
+                {nextEvent.description}
               </p>
 
               <div className="mt-7 flex flex-wrap gap-x-6 gap-y-3 text-sm opacity-80">
                 <span className="flex items-center gap-2">
                   <MapPin size={15} />
-                  SCI 159
+                  {nextEvent.location}
                 </span>
 
                 <span className="flex items-center gap-2">
                   <Clock3 size={15} />
-                  11:15 AM–12:30 PM
+                  {nextEvent.time}
                 </span>
               </div>
-
-              <div className="mt-7 flex flex-wrap gap-3">
-                <span className="border border-white/25 px-3 py-2 text-sm">
-                  Lab coats · $10
-                </span>
-
-                <span className="border border-white/25 px-3 py-2 text-sm">
-                  Goggles · $5
-                </span>
-              </div>
-
-              <p className="mt-5 font-mono-ui text-[10px] uppercase tracking-[.12em] opacity-60">
-                Cash · Card · Zelle accepted
-              </p>
 
               <div className="mt-7">
                 <ArrowLink href="/events" testId="link-home-events">
@@ -335,6 +298,7 @@ function Home() {
             </div>
           </div>
         </section>
+        }
 
         {/* AAMC STATISTICS */}
         <section className="bg-[hsl(var(--secondary))] px-5 py-20 lg:px-8 lg:py-28">

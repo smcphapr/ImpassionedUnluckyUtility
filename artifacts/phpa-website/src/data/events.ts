@@ -29,4 +29,18 @@ export const events: CampusEvent[] = [
     featured: true,
     past: false,
   },
+
+  {
+    id: "phpa-orientation-fall-2026",
+    title: "PHPA Orientation",
+    category: "Community",
+    date: "2026-09-15",
+    dateLabel: "SEP 15",
+    time: "11:15 AM – 12:00 PM",
+    location: "ZOOM",
+    description:
+      "Meet the PHPA board, see what we have planned this semester, hear about upcoming events and opportunities, and learn how to get involved. This meeting will be held on Zoom. The Zoom link will be available in our Linktree and posted to our Instagram Story a few hours before the meeting.",
+    featured: true,
+    past: false,
+  },
 ];
