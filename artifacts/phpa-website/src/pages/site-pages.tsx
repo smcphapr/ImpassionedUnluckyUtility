@@ -31,6 +31,23 @@ import {
   Tag,
 } from "@/components/site";
 
+function getUpcomingEvents() {
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+
+  return events
+    .filter((event) => {
+      const eventDate = new Date(`${event.date}T00:00:00`);
+      return (
+        !event.past &&
+        event.date &&
+        !Number.isNaN(eventDate.getTime()) &&
+        eventDate >= today
+      );
+    })
+    .sort((a, b) => a.date.localeCompare(b.date));
+}
+
 function Masthead({
   kicker,
   title,
@@ -57,14 +74,7 @@ function Masthead({
 
 function Home() {
   const homeContent = siteContent.home;
-  const today = new Date();
-  today.setHours(0, 0, 0, 0);
-  const nextEvent = events
-    .filter((event) => {
-      const eventDate = new Date(`${event.date}T00:00:00`);
-      return event.date && !Number.isNaN(eventDate.getTime()) && eventDate >= today;
-    })
-    .sort((a, b) => a.date.localeCompare(b.date))[0];
+  const nextEvent = getUpcomingEvents()[0];
 
   return (
     <PageFrame>
@@ -262,7 +272,11 @@ function Home() {
                   {nextEvent.dateLabel}
                 </p>
 
-                <p className="mt-4 text-sm opacity-70">{nextEvent.time}</p>
+                <p className="mt-4 text-sm opacity-70">
+                  {nextEvent.dayLabel
+                    ? `${nextEvent.dayLabel} · ${nextEvent.time}`
+                    : nextEvent.time}
+                </p>
               </div>
             </div>
 
@@ -288,12 +302,36 @@ function Home() {
                   <Clock3 size={15} />
                   {nextEvent.time}
                 </span>
+
+                {nextEvent.format && (
+                  <span className="flex items-center gap-2">
+                    {nextEvent.format}
+                  </span>
+                )}
               </div>
 
+              {nextEvent.callout && (
+                <p className="mt-5 font-mono-ui text-[10px] uppercase tracking-[.12em] text-[hsl(var(--accent))]">
+                  {nextEvent.callout}
+                </p>
+              )}
+
               <div className="mt-7">
-                <ArrowLink href="/events" testId="link-home-events">
-                  View event details
-                </ArrowLink>
+                {nextEvent.link ? (
+                  <a
+                    href={nextEvent.link}
+                    target="_blank"
+                    rel="noreferrer"
+                    data-testid="link-home-events"
+                    className="group inline-flex items-center gap-2 border-b border-[hsl(var(--accent))] pb-1 text-sm font-bold text-[hsl(var(--accent))] transition-all hover:gap-3"
+                  >
+                    {nextEvent.linkLabel ?? "Learn More"} <ExternalLink size={14} />
+                  </a>
+                ) : (
+                  <ArrowLink href="/events" testId="link-home-events">
+                    View event details
+                  </ArrowLink>
+                )}
               </div>
             </div>
           </div>
@@ -687,13 +725,20 @@ function EventCard({ event }: { event: (typeof events)[number] }) {
             <MapPin size={14} />
             {event.location}
           </p>
+          {event.format && (
+            <p className="mt-2 text-xs text-[hsl(var(--muted-foreground))]">
+              {event.format}
+            </p>
+          )}
         </div>
         <a
-          href="#"
+          href={event.link ?? "#"}
+          target={event.link ? "_blank" : undefined}
+          rel={event.link ? "noreferrer" : undefined}
           data-testid={`link-rsvp-${event.id}`}
           className="inline-flex items-center gap-2 self-start border border-[hsl(var(--primary))] px-3 py-2 text-xs font-bold transition-colors hover:bg-[hsl(var(--primary))] hover:text-[hsl(var(--primary-foreground))]"
         >
-          RSVP <ArrowUpRight size={14} />
+          {event.linkLabel ?? "RSVP"} <ArrowUpRight size={14} />
         </a>
       </div>
     </article>
@@ -701,8 +746,10 @@ function EventCard({ event }: { event: (typeof events)[number] }) {
 }
 
 function Events() {
-  const upcoming = events.filter((event) => !event.past);
-  const past = events.filter((event) => event.past);
+  const upcoming = getUpcomingEvents();
+  const upcomingIds = new Set(upcoming.map((event) => event.id));
+  const past = events.filter((event) => !upcomingIds.has(event.id));
+  const nextEvent = upcoming[0];
   return (
     <PageFrame>
       <main>
@@ -719,68 +766,70 @@ function Events() {
           }
           body="Workshops, speakers, study sessions, socials, and other events for SMC pre-health students."
         />
-        <section className="mx-auto max-w-7xl px-5 pb-20 lg:px-8">
+        {nextEvent && <section className="mx-auto max-w-7xl px-5 pb-20 lg:px-8">
           <div className="grid gap-8 bg-[hsl(var(--primary))] p-7 text-[hsl(var(--primary-foreground))] md:grid-cols-[.6fr_1.4fr] md:p-12">
             {/* DATE SIDE */}
             <div className="border-b border-white/20 pb-8 md:border-b-0 md:border-r md:pb-0">
               <Tag tone="yellow">Next event</Tag>
 
               <p className="mt-12 font-mono-ui text-5xl leading-none text-[hsl(var(--accent))]">
-                SEP
-                <br />
-                08
+                {nextEvent.dateLabel}
               </p>
 
               <p className="mt-4 text-sm opacity-70">
-                Tuesday · 11:15 AM–12:30 PM
+                {nextEvent.dayLabel
+                  ? `${nextEvent.dayLabel} · ${nextEvent.time}`
+                  : nextEvent.time}
               </p>
             </div>
 
             {/* EVENT INFO */}
             <div className="md:pl-5">
-              <p className="scribble opacity-70">
-                Lab essentials · limited stock
-              </p>
+              <p className="scribble opacity-70">{nextEvent.category}</p>
 
               <h2 className="mt-4 max-w-2xl font-display text-5xl font-bold leading-[.92] tracking-[-.05em]">
-                Lab Coat Sale
+                {nextEvent.title}
               </h2>
 
               <p className="mt-6 max-w-xl leading-7 opacity-75">
-                Need a lab coat for class? Stop by PHPA&apos;s lab coat sale for
-                washed and ready-to-use lab coats and goggles. Come early —
-                quantities are limited.
+                {nextEvent.description}
               </p>
 
               <div className="mt-7 flex flex-wrap gap-x-7 gap-y-3 text-sm opacity-80">
                 <span className="flex items-center gap-2">
                   <MapPin size={15} />
-                  SCI 159
+                  {nextEvent.location}
                 </span>
 
                 <span className="flex items-center gap-2">
                   <Clock3 size={15} />
-                  11:15 AM–12:30 PM
+                  {nextEvent.time}
                 </span>
+
+                {nextEvent.format && <span>{nextEvent.format}</span>}
               </div>
 
-              {/* PRICES */}
-              <div className="mt-8 flex flex-wrap gap-3">
-                <span className="border border-white/25 px-4 py-2 text-sm">
-                  Lab coats · $10
-                </span>
+              {nextEvent.callout && (
+                <p className="mt-5 font-mono-ui text-[10px] uppercase tracking-[.12em] text-[hsl(var(--accent))]">
+                  {nextEvent.callout}
+                </p>
+              )}
 
-                <span className="border border-white/25 px-4 py-2 text-sm">
-                  Goggles · $5
-                </span>
-              </div>
-
-              <p className="mt-5 font-mono-ui text-[10px] uppercase tracking-[.12em] opacity-60">
-                Cash · Card · Zelle accepted
-              </p>
+              {nextEvent.link && (
+                <a
+                  href={nextEvent.link}
+                  target="_blank"
+                  rel="noreferrer"
+                  data-testid={`link-featured-event-${nextEvent.id}`}
+                  className="mt-7 inline-flex items-center gap-2 border-b border-[hsl(var(--accent))] pb-1 text-sm font-bold text-[hsl(var(--accent))] transition-all hover:gap-3"
+                >
+                  {nextEvent.linkLabel ?? "Learn More"} <ExternalLink size={14} />
+                </a>
+              )}
             </div>
           </div>
         </section>
+        }
         <section className="mx-auto max-w-7xl px-5 lg:px-8">
           <div className="flex items-end justify-between border-b border-[hsl(var(--border))] pb-5">
             <div>
