@@ -64,3 +64,4 @@ export const boardMembers = [
     photo: "/board/sophie.png",
   },
 ];
+

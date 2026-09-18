@@ -725,20 +725,13 @@ function EventCard({ event }: { event: (typeof events)[number] }) {
             <MapPin size={14} />
             {event.location}
           </p>
-          {event.format && (
-            <p className="mt-2 text-xs text-[hsl(var(--muted-foreground))]">
-              {event.format}
-            </p>
-          )}
         </div>
         <a
-          href={event.link ?? "#"}
-          target={event.link ? "_blank" : undefined}
-          rel={event.link ? "noreferrer" : undefined}
+          href="#"
           data-testid={`link-rsvp-${event.id}`}
           className="inline-flex items-center gap-2 self-start border border-[hsl(var(--primary))] px-3 py-2 text-xs font-bold transition-colors hover:bg-[hsl(var(--primary))] hover:text-[hsl(var(--primary-foreground))]"
         >
-          {event.linkLabel ?? "RSVP"} <ArrowUpRight size={14} />
+          RSVP <ArrowUpRight size={14} />
         </a>
       </div>
     </article>
@@ -746,10 +739,8 @@ function EventCard({ event }: { event: (typeof events)[number] }) {
 }
 
 function Events() {
-  const upcoming = getUpcomingEvents();
-  const upcomingIds = new Set(upcoming.map((event) => event.id));
-  const past = events.filter((event) => !upcomingIds.has(event.id));
-  const nextEvent = upcoming[0];
+  const upcoming = events.filter((event) => !event.past);
+  const past = events.filter((event) => event.past);
   return (
     <PageFrame>
       <main>
@@ -766,70 +757,68 @@ function Events() {
           }
           body="Workshops, speakers, study sessions, socials, and other events for SMC pre-health students."
         />
-        {nextEvent && <section className="mx-auto max-w-7xl px-5 pb-20 lg:px-8">
+        <section className="mx-auto max-w-7xl px-5 pb-20 lg:px-8">
           <div className="grid gap-8 bg-[hsl(var(--primary))] p-7 text-[hsl(var(--primary-foreground))] md:grid-cols-[.6fr_1.4fr] md:p-12">
             {/* DATE SIDE */}
             <div className="border-b border-white/20 pb-8 md:border-b-0 md:border-r md:pb-0">
               <Tag tone="yellow">Next event</Tag>
 
               <p className="mt-12 font-mono-ui text-5xl leading-none text-[hsl(var(--accent))]">
-                {nextEvent.dateLabel}
+                SEP
+                <br />
+                08
               </p>
 
               <p className="mt-4 text-sm opacity-70">
-                {nextEvent.dayLabel
-                  ? `${nextEvent.dayLabel} · ${nextEvent.time}`
-                  : nextEvent.time}
+                Tuesday · 11:15 AM–12:30 PM
               </p>
             </div>
 
             {/* EVENT INFO */}
             <div className="md:pl-5">
-              <p className="scribble opacity-70">{nextEvent.category}</p>
+              <p className="scribble opacity-70">
+                Lab essentials · limited stock
+              </p>
 
               <h2 className="mt-4 max-w-2xl font-display text-5xl font-bold leading-[.92] tracking-[-.05em]">
-                {nextEvent.title}
+                Lab Coat Sale
               </h2>
 
               <p className="mt-6 max-w-xl leading-7 opacity-75">
-                {nextEvent.description}
+                Need a lab coat for class? Stop by PHPA&apos;s lab coat sale for
+                washed and ready-to-use lab coats and goggles. Come early —
+                quantities are limited.
               </p>
 
               <div className="mt-7 flex flex-wrap gap-x-7 gap-y-3 text-sm opacity-80">
                 <span className="flex items-center gap-2">
                   <MapPin size={15} />
-                  {nextEvent.location}
+                  SCI 159
                 </span>
 
                 <span className="flex items-center gap-2">
                   <Clock3 size={15} />
-                  {nextEvent.time}
+                  11:15 AM–12:30 PM
                 </span>
-
-                {nextEvent.format && <span>{nextEvent.format}</span>}
               </div>
 
-              {nextEvent.callout && (
-                <p className="mt-5 font-mono-ui text-[10px] uppercase tracking-[.12em] text-[hsl(var(--accent))]">
-                  {nextEvent.callout}
-                </p>
-              )}
+              {/* PRICES */}
+              <div className="mt-8 flex flex-wrap gap-3">
+                <span className="border border-white/25 px-4 py-2 text-sm">
+                  Lab coats · $10
+                </span>
 
-              {nextEvent.link && (
-                <a
-                  href={nextEvent.link}
-                  target="_blank"
-                  rel="noreferrer"
-                  data-testid={`link-featured-event-${nextEvent.id}`}
-                  className="mt-7 inline-flex items-center gap-2 border-b border-[hsl(var(--accent))] pb-1 text-sm font-bold text-[hsl(var(--accent))] transition-all hover:gap-3"
-                >
-                  {nextEvent.linkLabel ?? "Learn More"} <ExternalLink size={14} />
-                </a>
-              )}
+                <span className="border border-white/25 px-4 py-2 text-sm">
+                  Goggles · $5
+                </span>
+              </div>
+
+              <p className="mt-5 font-mono-ui text-[10px] uppercase tracking-[.12em] opacity-60">
+                Cash · Card · Zelle accepted
+              </p>
             </div>
           </div>
         </section>
-        }
         <section className="mx-auto max-w-7xl px-5 lg:px-8">
           <div className="flex items-end justify-between border-b border-[hsl(var(--border))] pb-5">
             <div>
