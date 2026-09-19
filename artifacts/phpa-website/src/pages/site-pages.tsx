@@ -219,124 +219,128 @@ function Home() {
           />
 
           <div className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-            {homeContent.intentCards.map(({ title, description, href, id }, index) => (
-              <Link
-                href={href}
-                key={id}
-                data-testid={`card-intent-${id}`}
-                className={`group flex min-h-52 flex-col justify-between border border-[hsl(var(--border))] bg-[hsl(var(--card))] p-6 transition-all hover:-translate-y-1 hover:border-[hsl(var(--primary))] hover:shadow-[4px_5px_0_hsl(var(--accent))] ${
-                  index === 1
-                    ? "rotate-[1deg]"
-                    : index === 2
-                      ? "border-t-4 border-t-[hsl(var(--accent))]"
-                      : index === 3
-                        ? "translate-y-2"
-                        : ""
-                }`}
-              >
-                <div className="flex items-start justify-between">
-                  <span className="font-mono-ui text-xs text-[hsl(var(--muted-foreground))]">
-                    0{index + 1}
-                  </span>
+            {homeContent.intentCards.map(
+              ({ title, description, href, id }, index) => (
+                <Link
+                  href={href}
+                  key={id}
+                  data-testid={`card-intent-${id}`}
+                  className={`group flex min-h-52 flex-col justify-between border border-[hsl(var(--border))] bg-[hsl(var(--card))] p-6 transition-all hover:-translate-y-1 hover:border-[hsl(var(--primary))] hover:shadow-[4px_5px_0_hsl(var(--accent))] ${
+                    index === 1
+                      ? "rotate-[1deg]"
+                      : index === 2
+                        ? "border-t-4 border-t-[hsl(var(--accent))]"
+                        : index === 3
+                          ? "translate-y-2"
+                          : ""
+                  }`}
+                >
+                  <div className="flex items-start justify-between">
+                    <span className="font-mono-ui text-xs text-[hsl(var(--muted-foreground))]">
+                      0{index + 1}
+                    </span>
 
-                  <ArrowDownRight
-                    size={19}
-                    className="text-[hsl(var(--muted-foreground))] transition-transform group-hover:translate-x-1 group-hover:translate-y-1"
-                  />
-                </div>
+                    <ArrowDownRight
+                      size={19}
+                      className="text-[hsl(var(--muted-foreground))] transition-transform group-hover:translate-x-1 group-hover:translate-y-1"
+                    />
+                  </div>
 
-                <div>
-                  <h3 className="font-display text-2xl font-bold leading-tight">
-                    {title}
-                  </h3>
-                  <p className="mt-3 text-sm leading-6 text-[hsl(var(--muted-foreground))]">
-                    {description}
-                  </p>
-                </div>
-              </Link>
-            ))}
+                  <div>
+                    <h3 className="font-display text-2xl font-bold leading-tight">
+                      {title}
+                    </h3>
+                    <p className="mt-3 text-sm leading-6 text-[hsl(var(--muted-foreground))]">
+                      {description}
+                    </p>
+                  </div>
+                </Link>
+              ),
+            )}
           </div>
         </section>
 
         {/* NEXT EVENT */}
-        {nextEvent && <section className="mx-auto max-w-7xl px-5 pb-20 lg:px-8 lg:pb-28">
-          <div className="grid overflow-hidden border border-[hsl(var(--primary))] bg-[hsl(var(--primary))] text-[hsl(var(--primary-foreground))] md:grid-cols-[.72fr_1.28fr]">
-            {/* DATE / LABEL SIDE */}
-            <div className="flex flex-col justify-between border-b border-white/20 p-7 md:border-b-0 md:border-r md:p-10">
-              <div>
-                <Tag tone="yellow">Next PHPA Event</Tag>
+        {nextEvent && (
+          <section className="mx-auto max-w-7xl px-5 pb-20 lg:px-8 lg:pb-28">
+            <div className="grid overflow-hidden border border-[hsl(var(--primary))] bg-[hsl(var(--primary))] text-[hsl(var(--primary-foreground))] md:grid-cols-[.72fr_1.28fr]">
+              {/* DATE / LABEL SIDE */}
+              <div className="flex flex-col justify-between border-b border-white/20 p-7 md:border-b-0 md:border-r md:p-10">
+                <div>
+                  <Tag tone="yellow">Next PHPA Event</Tag>
+                </div>
+
+                <div className="mt-12">
+                  <p className="font-mono-ui text-5xl leading-none text-[hsl(var(--accent))]">
+                    {nextEvent.dateLabel}
+                  </p>
+
+                  <p className="mt-4 text-sm opacity-70">
+                    {nextEvent.dayLabel
+                      ? `${nextEvent.dayLabel} · ${nextEvent.time}`
+                      : nextEvent.time}
+                  </p>
+                </div>
               </div>
 
-              <div className="mt-12">
-                <p className="font-mono-ui text-5xl leading-none text-[hsl(var(--accent))]">
-                  {nextEvent.dateLabel}
+              {/* EVENT INFO SIDE */}
+              <div className="p-7 md:p-10">
+                <p className="scribble opacity-65">{nextEvent.category}</p>
+
+                <h2 className="mt-3 max-w-lg font-display text-5xl font-bold leading-[.95] tracking-[-.04em]">
+                  {nextEvent.title}
+                </h2>
+
+                <p className="mt-6 max-w-lg leading-7 opacity-75">
+                  {nextEvent.description}
                 </p>
 
-                <p className="mt-4 text-sm opacity-70">
-                  {nextEvent.dayLabel
-                    ? `${nextEvent.dayLabel} · ${nextEvent.time}`
-                    : nextEvent.time}
-                </p>
-              </div>
-            </div>
-
-            {/* EVENT INFO SIDE */}
-            <div className="p-7 md:p-10">
-              <p className="scribble opacity-65">{nextEvent.category}</p>
-
-              <h2 className="mt-3 max-w-lg font-display text-5xl font-bold leading-[.95] tracking-[-.04em]">
-                {nextEvent.title}
-              </h2>
-
-              <p className="mt-6 max-w-lg leading-7 opacity-75">
-                {nextEvent.description}
-              </p>
-
-              <div className="mt-7 flex flex-wrap gap-x-6 gap-y-3 text-sm opacity-80">
-                <span className="flex items-center gap-2">
-                  <MapPin size={15} />
-                  {nextEvent.location}
-                </span>
-
-                <span className="flex items-center gap-2">
-                  <Clock3 size={15} />
-                  {nextEvent.time}
-                </span>
-
-                {nextEvent.format && (
+                <div className="mt-7 flex flex-wrap gap-x-6 gap-y-3 text-sm opacity-80">
                   <span className="flex items-center gap-2">
-                    {nextEvent.format}
+                    <MapPin size={15} />
+                    {nextEvent.location}
                   </span>
-                )}
-              </div>
 
-              {nextEvent.callout && (
-                <p className="mt-5 font-mono-ui text-[10px] uppercase tracking-[.12em] text-[hsl(var(--accent))]">
-                  {nextEvent.callout}
-                </p>
-              )}
+                  <span className="flex items-center gap-2">
+                    <Clock3 size={15} />
+                    {nextEvent.time}
+                  </span>
 
-              <div className="mt-7">
-                {nextEvent.link ? (
-                  <a
-                    href={nextEvent.link}
-                    target="_blank"
-                    rel="noreferrer"
-                    data-testid="link-home-events"
-                    className="group inline-flex items-center gap-2 border-b border-[hsl(var(--accent))] pb-1 text-sm font-bold text-[hsl(var(--accent))] transition-all hover:gap-3"
-                  >
-                    {nextEvent.linkLabel ?? "Learn More"} <ExternalLink size={14} />
-                  </a>
-                ) : (
-                  <ArrowLink href="/events" testId="link-home-events">
-                    View event details
-                  </ArrowLink>
+                  {nextEvent.format && (
+                    <span className="flex items-center gap-2">
+                      {nextEvent.format}
+                    </span>
+                  )}
+                </div>
+
+                {nextEvent.callout && (
+                  <p className="mt-5 font-mono-ui text-[10px] uppercase tracking-[.12em] text-[hsl(var(--accent))]">
+                    {nextEvent.callout}
+                  </p>
                 )}
+
+                <div className="mt-7">
+                  {nextEvent.link ? (
+                    <a
+                      href={nextEvent.link}
+                      target="_blank"
+                      rel="noreferrer"
+                      data-testid="link-home-events"
+                      className="group inline-flex items-center gap-2 border-b border-[hsl(var(--accent))] pb-1 text-sm font-bold text-[hsl(var(--accent))] transition-all hover:gap-3"
+                    >
+                      {nextEvent.linkLabel ?? "Learn More"}{" "}
+                      <ExternalLink size={14} />
+                    </a>
+                  ) : (
+                    <ArrowLink href="/events" testId="link-home-events">
+                      View event details
+                    </ArrowLink>
+                  )}
+                </div>
               </div>
             </div>
-          </div>
-        </section>
-        }
+          </section>
+        )}
 
         {/* AAMC STATISTICS */}
         <section className="bg-[hsl(var(--secondary))] px-5 py-20 lg:px-8 lg:py-28">
@@ -423,17 +427,14 @@ function Home() {
               title="A few places to start."
             />
 
-            <ArrowLink
-              href="/opportunities"
-              testId="link-home-opportunities"
-            >
+            <ArrowLink href="/opportunities" testId="link-home-opportunities">
               See all opportunities
             </ArrowLink>
           </div>
 
           <p className="mt-5 max-w-2xl leading-7 text-[hsl(var(--muted-foreground))]">
-            We&apos;re always adding new shadowing, clinical, volunteer, and research
-            opportunities as we find them.
+            We&apos;re always adding new shadowing, clinical, volunteer, and
+            research opportunities as we find them.
           </p>
 
           <div className="mt-12 border-t border-[hsl(var(--border))]">
@@ -777,17 +778,18 @@ function Events() {
             {/* EVENT INFO */}
             <div className="md:pl-5">
               <p className="scribble opacity-70">
-                Lab essentials · limited stock
+                PRE-MED · UCLA · INFORMATION SESSION
               </p>
 
               <h2 className="mt-4 max-w-2xl font-display text-5xl font-bold leading-[.92] tracking-[-.05em]">
-                Lab Coat Sale
+                UCLA California Medicine Scholars Program
               </h2>
 
               <p className="mt-6 max-w-xl leading-7 opacity-75">
-                Need a lab coat for class? Stop by PHPA&apos;s lab coat sale for
-                washed and ready-to-use lab coats and goggles. Come early —
-                quantities are limited.
+                Interested in medicine? Learn about the California Medicine
+                Scholars Program and SMC&apos;s participation in the UCLA-led LA
+                Med Regional Hub of Healthcare Opportunity. Hear about the
+                program, eligibility, and how to apply.
               </p>
 
               <div className="mt-7 flex flex-wrap gap-x-7 gap-y-3 text-sm opacity-80">
@@ -798,23 +800,22 @@ function Events() {
 
                 <span className="flex items-center gap-2">
                   <Clock3 size={15} />
-                  11:15 AM–12:30 PM
+                  11:00 AM–12:00 PM
                 </span>
               </div>
 
-              {/* PRICES */}
               <div className="mt-8 flex flex-wrap gap-3">
                 <span className="border border-white/25 px-4 py-2 text-sm">
-                  Lab coats · $10
+                  In person
                 </span>
 
                 <span className="border border-white/25 px-4 py-2 text-sm">
-                  Goggles · $5
+                  Applications open
                 </span>
               </div>
 
               <p className="mt-5 font-mono-ui text-[10px] uppercase tracking-[.12em] opacity-60">
-                Cash · Card · Zelle accepted
+                All eligible SMC students interested in medicine are welcome
               </p>
             </div>
           </div>
