@@ -1,5 +1,21 @@
 export const boardMembers = [
   {
+    id: "Dr. Collin Ellis",
+    name: "Dr. Collin Ellis",
+    initials: "CE",
+    role: "Advisor",
+    email: "",
+    photo: "/board/collin.png",
+  },
+  {
+    id: "Professor-Qualey",
+    name: "Professor Qualey",
+    initials: "PQ",
+    role: "Advisor",
+    email: "",
+    photo: "/board/qualey.png",
+  },
+  {
     id: "valeria-galindo",
     name: "Valeria Galindo",
     initials: "VG",
@@ -37,7 +53,7 @@ export const boardMembers = [
     initials: "RC",
     role: "Treasurer",
     email: "chang_huan-jui01@student.smc.edu",
-    photo: "/board/ray.png",
+    photo: "/board/ray1.png",
   },
   {
     id: "sarvin-torab",
