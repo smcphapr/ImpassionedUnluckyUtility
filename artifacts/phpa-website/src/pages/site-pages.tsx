@@ -12,8 +12,8 @@ import {
   Sparkles,
 } from "lucide-react";
 import { Link } from "wouter";
+import events from "../data/events.json";
 import phpaLogo from "@assets/0_smc_phpa_logo_bg_removed_1787524062474.png";
-import { events } from "../data/events";
 import {
   opportunities,
   type Opportunity,
@@ -742,6 +742,8 @@ function EventCard({ event }: { event: (typeof events)[number] }) {
 function Events() {
   const upcoming = events.filter((event) => !event.past);
   const past = events.filter((event) => event.past);
+
+  const nextEvent = upcoming[0];
   return (
     <PageFrame>
       <main>
@@ -765,57 +767,59 @@ function Events() {
               <Tag tone="yellow">Next event</Tag>
 
               <p className="mt-12 font-mono-ui text-5xl leading-none text-[hsl(var(--accent))]">
-                SEP
+                {nextEvent.dateLabel.split(" ")[0]}
                 <br />
-                08
+                {nextEvent.dateLabel.split(" ")[1]}
               </p>
 
               <p className="mt-4 text-sm opacity-70">
-                Tuesday · 11:15 AM–12:30 PM
+                {nextEvent.dayLabel} · {nextEvent.time}
               </p>
             </div>
 
             {/* EVENT INFO */}
             <div className="md:pl-5">
               <p className="scribble opacity-70">
-                PRE-MED · UCLA · INFORMATION SESSION
+                {nextEvent.category}
+                {nextEvent.format ? ` · ${nextEvent.format}` : ""}
               </p>
 
               <h2 className="mt-4 max-w-2xl font-display text-5xl font-bold leading-[.92] tracking-[-.05em]">
-                UCLA California Medicine Scholars Program
+                {nextEvent.title}
               </h2>
 
               <p className="mt-6 max-w-xl leading-7 opacity-75">
-                Interested in medicine? Learn about the California Medicine
-                Scholars Program and SMC&apos;s participation in the UCLA-led LA
-                Med Regional Hub of Healthcare Opportunity. Hear about the
-                program, eligibility, and how to apply.
+                {nextEvent.description}
               </p>
 
               <div className="mt-7 flex flex-wrap gap-x-7 gap-y-3 text-sm opacity-80">
                 <span className="flex items-center gap-2">
                   <MapPin size={15} />
-                  SCI 159
+                  {nextEvent.location}
                 </span>
 
                 <span className="flex items-center gap-2">
                   <Clock3 size={15} />
-                  11:00 AM–12:00 PM
+                  {nextEvent.time}
                 </span>
               </div>
 
               <div className="mt-8 flex flex-wrap gap-3">
-                <span className="border border-white/25 px-4 py-2 text-sm">
-                  In person
-                </span>
+                {nextEvent.format && (
+                  <span className="border border-white/25 px-4 py-2 text-sm">
+                    {nextEvent.format}
+                  </span>
+                )}
 
-                <span className="border border-white/25 px-4 py-2 text-sm">
-                  Applications open
-                </span>
+                {nextEvent.callout && (
+                  <span className="border border-white/25 px-4 py-2 text-sm">
+                    {nextEvent.callout}
+                  </span>
+                )}
               </div>
 
               <p className="mt-5 font-mono-ui text-[10px] uppercase tracking-[.12em] opacity-60">
-                All eligible SMC students interested in medicine are welcome
+                All SMC students interested in healthcare are welcome
               </p>
             </div>
           </div>
