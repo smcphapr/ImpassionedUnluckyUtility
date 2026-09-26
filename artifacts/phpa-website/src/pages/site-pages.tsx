@@ -341,7 +341,34 @@ function Home() {
             </div>
           </section>
         )}
+        {/* PHPA ZOOM */}
+        <section className="mx-auto max-w-7xl px-5 py-8 lg:px-8">
+          <div className="grid gap-5 border-y border-[hsl(var(--border))] py-6 md:grid-cols-[1fr_auto] md:items-center">
+            <div>
+              <p className="scribble text-[hsl(var(--muted-foreground))]">
+                Virtual meetings
+              </p>
 
+              <h2 className="mt-1 font-display text-3xl font-bold">
+                Join PHPA on Zoom
+              </h2>
+
+              <div className="mt-3 flex flex-wrap gap-x-6 gap-y-1 font-mono-ui text-xs">
+                <span>Meeting ID: 510 154 2368</span>
+                <span>Passcode: SMCPHPA</span>
+              </div>
+            </div>
+
+            <a
+              href="https://us05web.zoom.us/j/5101542368?pwd=t7F9dInbMl7aUUmEb8JOzgybfZkFs6.1&omn=83650899699"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center border border-[hsl(var(--foreground))] px-6 py-3 font-mono-ui text-xs uppercase tracking-[.12em] transition-colors hover:bg-[hsl(var(--foreground))] hover:text-[hsl(var(--background))]"
+            >
+              Join Zoom ↗
+            </a>
+          </div>
+        </section>
         {/* AAMC STATISTICS */}
         <section className="bg-[hsl(var(--secondary))] px-5 py-20 lg:px-8 lg:py-28">
           <div className="mx-auto max-w-7xl">
@@ -822,6 +849,38 @@ function Events() {
                 All SMC students interested in healthcare are welcome
               </p>
             </div>
+          </div>
+        </section>
+        <section className="mx-auto mt-8 max-w-7xl px-5 lg:px-8">
+          <div className="grid gap-6 border border-[hsl(var(--border))] bg-[hsl(var(--muted))] p-6 md:grid-cols-[1fr_auto] md:items-center md:p-8">
+            <div>
+              <p className="scribble text-[hsl(var(--muted-foreground))]">
+                Join us online
+              </p>
+
+              <h2 className="mt-2 font-display text-3xl font-bold">
+                Join the PHPA Zoom
+              </h2>
+
+              <p className="mt-2 max-w-xl text-sm leading-6 opacity-70">
+                Attending one of our virtual events? Use our PHPA Zoom room to
+                join.
+              </p>
+
+              <div className="mt-4 flex flex-wrap gap-x-6 gap-y-1 font-mono-ui text-xs">
+                <span>Meeting ID: 510 154 2368</span>
+                <span>Passcode: smcphpa</span>
+              </div>
+            </div>
+
+            <a
+              href="https://us05web.zoom.us/j/5101542368?pwd=t7F9dInbMl7aUUmEb8JOzgybfZkFs6.1&omn=83650899699"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center border border-[hsl(var(--foreground))] px-6 py-3 font-mono-ui text-xs uppercase tracking-[.12em] transition-colors hover:bg-[hsl(var(--foreground))] hover:text-[hsl(var(--background))]"
+            >
+              Join Zoom ↗
+            </a>
           </div>
         </section>
         <section className="mx-auto max-w-7xl px-5 lg:px-8">
