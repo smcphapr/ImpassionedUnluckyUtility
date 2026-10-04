@@ -1,15 +1,19 @@
-import { type ReactNode } from 'react';
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { ErrorBoundary } from '@/components/error-boundary';
-import { Toaster } from '@/components/ui/toaster';
-import { TooltipProvider } from '@/components/ui/tooltip';
-import { About, Events, Guide, Home, Join, NotFoundPage, Opportunities } from '@/pages/site-pages';
+import { type ReactNode } from "react";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { ErrorBoundary } from "@/components/error-boundary";
+import { Toaster } from "@/components/ui/toaster";
+import { TooltipProvider } from "@/components/ui/tooltip";
 import {
-  Route,
-  Switch,
-  useLocation,
-  Router as WouterRouter,
-} from 'wouter';
+  About,
+  Events,
+  Guide,
+  Home,
+  Join,
+  MeetingLibrary,
+  NotFoundPage,
+  Opportunities,
+} from "@/pages/site-pages";
+import { Route, Switch, useLocation, Router as WouterRouter } from "wouter";
 
 const queryClient = new QueryClient();
 
@@ -20,12 +24,13 @@ function Router() {
     <RoutedErrorBoundary>
       <Switch>
         <Route path="/" component={Home} />
-         <Route path="/opportunities" component={Opportunities} />
-         <Route path="/events" component={Events} />
-         <Route path="/guide" component={Guide} />
-         <Route path="/about" component={About} />
-         <Route path="/join" component={Join} />
-         <Route component={NotFoundPage} />
+        <Route path="/opportunities" component={Opportunities} />
+        <Route path="/events" component={Events} />
+        <Route path="/recordings" component={MeetingLibrary} />
+        <Route path="/guide" component={Guide} />
+        <Route path="/about" component={About} />
+        <Route path="/join" component={Join} />
+        <Route component={NotFoundPage} />
       </Switch>
     </RoutedErrorBoundary>
   );
@@ -40,7 +45,7 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
-        <WouterRouter base={import.meta.env.BASE_URL.replace(/\/$/, '')}>
+        <WouterRouter base={import.meta.env.BASE_URL.replace(/\/$/, "")}>
           <Router />
         </WouterRouter>
         <Toaster />

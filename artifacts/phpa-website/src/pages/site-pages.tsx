@@ -13,6 +13,7 @@ import {
 } from "lucide-react";
 import { Link } from "wouter";
 import events from "../data/events.json";
+import { recordings } from "../data/recordings";
 import phpaLogo from "@assets/0_smc_phpa_logo_bg_removed_1787524062474.png";
 import {
   opportunities,
@@ -916,7 +917,80 @@ function Events() {
     </PageFrame>
   );
 }
+function MeetingLibrary() {
+  return (
+    <PageFrame>
+      <main>
+        <Masthead
+          kicker="PHPA · Fall 2026"
+          title={
+            <>
+              Meeting
+              <br />
+              Library
+            </>
+          }
+          description="Missed a meeting? Catch up on selected PHPA guest speakers, workshops, and events."
+        />
 
+        <section className="mx-auto max-w-7xl px-5 py-16 lg:px-8">
+          <div className="border-b border-[hsl(var(--border))] pb-5">
+            <p className="scribble mb-2 text-[hsl(var(--muted-foreground))]">
+              Watch on your schedule
+            </p>
+
+            <h2 className="font-display text-4xl font-bold">
+              Recorded meetings
+            </h2>
+          </div>
+
+          {recordings.length === 0 ? (
+            <div className="mt-8 border border-[hsl(var(--border))] bg-[hsl(var(--secondary))] p-8 md:p-12">
+              <p className="font-mono-ui text-xs uppercase tracking-[.14em] text-[hsl(var(--muted-foreground))]">
+                Meeting Library
+              </p>
+
+              <h3 className="mt-4 max-w-xl font-display text-3xl font-bold">
+                Recordings coming soon.
+              </h3>
+
+              <p className="mt-4 max-w-2xl leading-7 text-[hsl(var(--muted-foreground))]">
+                Selected PHPA meetings will be available here for students who
+                cannot attend live. Check back throughout the semester as new
+                recordings are added.
+              </p>
+            </div>
+          ) : (
+            <div className="mt-8 grid gap-5 md:grid-cols-2">
+              {recordings.map((recording) => (
+                <article
+                  key={recording.id}
+                  className="border border-[hsl(var(--border))] p-6"
+                >
+                  <p className="font-mono-ui text-xs uppercase tracking-[.12em] text-[hsl(var(--muted-foreground))]">
+                    {recording.date}
+                  </p>
+
+                  <h3 className="mt-3 font-display text-3xl font-bold">
+                    {recording.title}
+                  </h3>
+
+                  {recording.speaker && (
+                    <p className="mt-2 text-sm">With {recording.speaker}</p>
+                  )}
+
+                  <p className="mt-5 leading-7 text-[hsl(var(--muted-foreground))]">
+                    {recording.description}
+                  </p>
+                </article>
+              ))}
+            </div>
+          )}
+        </section>
+      </main>
+    </PageFrame>
+  );
+}
 function PathwayPanel({
   pathway,
   active,
@@ -1615,4 +1689,13 @@ function NotFoundPage() {
   );
 }
 
-export { About, Events, Guide, Home, Join, NotFoundPage, Opportunities };
+export {
+  About,
+  Events,
+  Guide,
+  Home,
+  Join,
+  MeetingLibrary,
+  NotFoundPage,
+  Opportunities,
+};
