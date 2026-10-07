@@ -39,7 +39,22 @@
     "format": "In Person",
     "description": "Looking for clinical experience but not sure where to start? Sarvin and Rebecca share how they found volunteer opportunities at hospitals and around LA, where to look, how to get started, and what they learned along the way.",
     "callout": "Sarvin + Rebecca",
-    "featured": true,
-    "past": false
+    "featured": false,
+    "past": true
+  },
+  {
+    "id": "cmsp-info-session-oct-8-2026",
+    "title": "California Medicine Scholars Program (CMSP) Info Session",
+    "category": "INFO SESSION",
+    "date": "2026-10-08",
+    "dateLabel": "OCT 8",
+    "dayLabel": "Thursday",
+    "time": "11:00 AM–12:00 PM",
+    "location": "SCI 159 · SMC Main Campus",
+    "format": "In Person + Zoom",
+    "description": "Learn about the UCLA LA Med Hub California Medicine Scholars Program (CMSP), including the application process, program details, and tips for a strong application.",
+    "speaker": "Alisa Lopez",
+    "speakerTitle": "Executive Director of Admissions",
+    "featured": true
   }
 ]

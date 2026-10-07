@@ -64,6 +64,6 @@ export const events: CampusEvent[] = [
     callout: "Applications are now open.",
     linkLabel: "Learn More",
     link: "https://californiamedicinescholarsprogram.org/",
-    featured: true,
+    featured: false,
   },
 ];
