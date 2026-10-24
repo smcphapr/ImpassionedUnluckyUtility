@@ -2,7 +2,8 @@ export type OpportunityKind =
   | "Shadowing"
   | "Clinical experience"
   | "Volunteering"
-  | "Research";
+  | "Research"
+  | "Coursework";
 
 export type Opportunity = {
   id: string;
@@ -59,5 +60,16 @@ export const opportunities: Opportunity[] = [
       "CHLA offers limited pediatric job-shadow opportunities for students who are in the process of applying to an accredited PA program. Observation requests are accepted on a rolling basis and are limited to 40 hours.",
     linkLabel: "View Pre-PA requirements",
     link: "https://www.chla.org/office-advanced-practice/advanced-practice-provider-student-clinical-rotations",
+  },
+  {
+    id: "smc-advanced-human-anatomy-spring-2027",
+    organization: "SMC Advanced Human Anatomy (ANA 2) — Spring 2027",
+    type: "Coursework",
+    location: "SMC Main Campus · MSB 219",
+    description:
+      "A hands-on, small-group human donor dissection course with a clinical emphasis. Students will explore human anatomy through real tissue dissection, selected medical and surgical procedures, patient assessment skills, and interactive workshops with clinicians and medical students. Taught by Professor Collin Ellis. Meets Fridays from 10:30 AM–4:50 PM (Section 1104). Prerequisite: ANA 1 or department-approved equivalent. Free text/lab manual and study materials provided. Contact the professor with questions about costs or workload.",
+    linkLabel: "Contact Professor Ellis",
+    link: "mailto:ellis_collin@smc.edu",
+    featured: true,
   },
 ];

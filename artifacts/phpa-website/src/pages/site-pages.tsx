@@ -593,6 +593,7 @@ function OpportunityCard({
 
 function Opportunities() {
   const kinds: OpportunityKind[] = [
+    "Coursework",
     "Shadowing",
     "Clinical experience",
     "Volunteering",
@@ -612,7 +613,7 @@ function Opportunities() {
               </em>
             </>
           }
-          body="We’re putting together shadowing, volunteering, research, and clinical opportunities for SMC students."
+          body="Explore hands-on courses, shadowing, volunteering, research, and clinical opportunities for SMC students."
         />
         <section className="mx-auto max-w-7xl px-5 pb-16 lg:px-8">
           <div className="relative overflow-hidden border border-[hsl(var(--primary))] bg-[hsl(var(--secondary))] p-7 md:p-12">

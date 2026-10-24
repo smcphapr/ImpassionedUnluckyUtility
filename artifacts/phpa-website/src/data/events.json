@@ -55,6 +55,22 @@
     "description": "Learn about the UCLA LA Med Hub California Medicine Scholars Program (CMSP), including the application process, program details, and tips for a strong application.",
     "speaker": "Alisa Lopez",
     "speakerTitle": "Executive Director of Admissions",
-    "featured": true
+    "featured": false,
+    "past": true
+  },
+  {
+    "id": "pre-med-advisor-oct-27-2026",
+    "title": "Pre-Med Advisor Talk",
+    "category": "Guest Speaker",
+    "date": "2026-10-27",
+    "dateLabel": "OCT 27",
+    "dayLabel": "Tuesday",
+    "time": "11:30 AM",
+    "location": "SCI 159 · SMC Main Campus",
+    "format": "Hybrid",
+    "description": "Thinking about medical school? Join Kristen Anderson, MSW, a pre-medical advisor with Medical School Headquarters, for a conversation about prerequisites, gaining experience, preparing for applications, and planning your path to medical school. Bring your questions!",
+    "callout": "Kristen Anderson, MSW · Medical School Headquarters",
+    "featured": true,
+    "past": false
   }
 ]
